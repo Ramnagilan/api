@@ -1,0 +1,5535 @@
+Day 1: 10-07-203:
+--------------------
+Demo Class
+
+SQL	+ Snowflake + Data Warehouse
+20	+ 	30		+ 10
+--------------------------------------------
+Day 2: 11-07-2023:
+-------------------
+Snowflake - Cloud Based Data Warehouse
+
+Data:
+-----
+Data - Information
+
+Database:
+---------
+Collection of information store.
+
+ETL:
+-----
+Extract Transform Load
+
+Reporting:
+-----------
+
+Data Warehouse generations:
+----------------------------
+
+Architecture:
+-------------
+
+--------------------------------------------
+Day 3: 12-07-2023:
+------------------
+How to install the notepad++
+
+How to get the Snowflake Account:
+---------------------------------
+
+Choose your Snowflake edition:
+------------------------------
+Standard
+Enterprise
+Business Critical
+Virtual Private Snowflake
+
+Choose your cloud provider:
+-------------------------------
+Microsoft Azure
+Amazon Web Services
+Google Cloud Platform
+
+Regions:
+-------
+
+Table:
+------
+Table is contains column and row.
+It is used to store the data and make different partition.
+
+Clauses:
+--------
+1. SELECT
+2. FROM
+3. ORDER BY
+
+Syntax:
+-------
+SELECT column_name / 'String'
+FROM table_name
+ORDER BY column_name;
+
+Script Table Name - Employees
+
+1. SELECT:
+----------
+It is used to selecting the columns from table.
+
+2. FROM:
+---------
+It is used to select the table from database.
+
+Single Column:
+--------------
+SELECT EMPLOYEE_ID FROM EMPLOYEES;
+
+Multiple Column Selection:
+------------------------------
+SELECT EMPLOYEE_ID , FIRST_NAME , LAST_NAME FROM EMPLOYEES;
+
+, -> Column Seperate
+
+All Columns:
+-------------
+SELECT * FROM EMPLOYEES;
+
+3. ORDER BY:
+------------
+It is used to sorting the records.
+ASCENDING => A - Z
+DESCENDING => Z - A
+
+SELECT FIRST_NAME FROM EMPLOYEES ORDER BY FIRST_NAME ASC
+
+Table Data:			ASC	(Optional)					DESC
+-----------		------------------				------------
+Characters			A-Z								Z-A
+Number			low - high						high - low
+Date			lowest  - highest date			highest - lowest date
+
+Characters:
+-----------
+SELECT FIRST_NAME FROM EMPLOYEES ORDER BY FIRST_NAME ASC;
+
+SELECT FIRST_NAME FROM EMPLOYEES ORDER BY FIRST_NAME DESC;
+
+
+Number:
+-------
+SELECT SALARY FROM EMPLOYEES ORDER BY SALARY ASC;
+
+SELECT SALARY FROM EMPLOYEES ORDER BY SALARY DESC;
+
+Date:
+------
+SELECT HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE ASC;
+
+SELECT HIRE_DATE FROM EMPLOYEES ORDER BY HIRE_DATE DESC;
+
+; -> Exit operator
+
+--------------------------------------------
+Day 4: 13-07-2023:
+------------------
+Clauses:
+--------
+1. SELECT
+2. FROM
+3. ORDER BY
+4. DISTINCT
+5. WHERE
+
+4. DISTINCT:
+------------
+It is used to remove the duplicates from the column.
+
+SELECT DISTINCT DEPARTMENT_ID FROM EMPLOYEES
+ORDER BY DEPARTMENT_ID ASC;
+
+DUAL:
+-----
+It is a dummy table.
+It is used to holding the own text in the table.
+We should mention the single quote enclosed with text.
+
+Single Quotes -> Characters & Date
+Single Quotes not required -> Numbers & Columns
+
+SELECT 'hello world' FROM DUAL;
+
+SELECT 12345;
+
+SELECT FIRST_NAME FROM EMPLOYEES;
+
+SELECT 13-07-2023 FROM DUAL;
+
+5. WHERE:
+----------
+1. Validate the condition
+2. Select specific row
+
+1 = 1 -> Condition Satisifed
+X = X -> Condition Satisifed
+1 = 2 -> Condition not Satisifed
+
+SELECT 'HELLO' 
+FROM DUAL 
+WHERE 1 = 1;
+
+SELECT 'HELLO' 
+FROM DUAL 
+WHERE 'HELLO'  = 'HELLO';
+
+SELECT FIRST_NAME
+FROM EMPLOYEES;
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'Neena';
+
+SELECT *
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'Bruce';
+
+--------------------------------------------
+Day 5: 14-07-2023:
+------------------
+Is SQL case sensitve or not?
+	Sql is not case sensitve. But table data is case sesnsitive.
+
+Operators:
+-----------
+It is working with table data.
+
+1. Arithmetic Operator
+2. Character Operator
+3. Comparison Operator
+4. Special Operator
+5. Logical Operator
+6. Set Operator
+
+1. Arithmetic Operator:
+-----------------------
+It is used to calculation purpose only for numbers.
+
++	Addition
+-	Subtraction
+*	Multiplication
+/	Division
+%	Modulo
+
+SELECT 100 + 100;
+
+SELECT 150 - 100;
+
+SELECT 2 * 100;
+
+SELECT 100 / 2;
+
+SELECT 10 % 3;
+
+SELECT 
+	100 + 100 ,
+	150 - 100 ,
+	2 * 100 , 
+	100 / 2 ,
+	10 % 3;
+
+ALIAS:
+------
+It is a alternate name of existing table or column.
+
+	1. Column Alias
+	2. Table Alias
+	
+1. Column Alias:
+----------------
+AS keyword is used to set the column alias name.
+AS keyword is optional. But using AS keyword is good for practice.
+Column names are always capital.
+Alias does not accepting the spaces.
+
+SELECT 
+	100 + 100 AS ADDITION,
+	150 - 100 Subtraction,
+	2 * 100 AS "IT IS Multiplication", 
+	100 / 2 AS It_is_division,
+	10 % 3
+FROM 
+	DUAL;
+
+select 98767676+null;
+Output: null
+
+2. Character Operator:
+----------------------
+It is used to merging the multiple characters or columns.
+
+|| - Concatenation
+
+SELECT 'A' || 'A'
+FROM DUAL;
+
+SELECT 'Hello ' || FIRST_NAME
+FROM EMPLOYEES;
+
+select first_name || last_name
+from employees;
+
+select first_name || ' '  || last_name
+from employees;
+
+Hi Steven, your designation is AD_PRES and your salary is 24,000 and your department is 90.
+
+SELECT 'Hi ' || FIRST_NAME || ', your designation is ' || JOB_ID || ' and your salary is ' || salary || ' and your department is ' || department_id
+FROM EMPLOYEES
+WHERE employee_id = 100;
+
+3. Comparison Operator:
+-----------------------
+1. Equalto (=)
+2. Not Equalto (!=) , (<>)
+3. Less than <
+4. Greater than >
+5. Lessthan or equalto <=
+6. Greaterthan or equalto >=
+
+1. Equalto (=):
+---------------
+SELECT 'ABC'
+FROM DUAL
+WHERE 1 = 1;
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'Steven';
+
+2. Not Equalto (!=) , (<>):
+---------------------------
+SELECT 'HELLO'
+FROM DUAL
+WHERE 1 != 1;
+
+SELECT 'HELLO'
+FROM DUAL
+WHERE 1 <> 1;
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME != 'Steven';
+
+3. Less than <:
+----------------
+SELECT 'HI'
+FROM DUAL
+WHERE 1 < 2;
+
+SELECT SALARY
+FROM Employees
+WHERE SALARY < 10000;
+
+4. Greater than >:
+-------------------
+SELECT 'HI'
+FROM DUAL
+WHERE 10 > 2;
+
+SELECT SALARY
+FROM Employees
+WHERE SALARY > 10000;
+
+5. Lessthan or equalto <=:
+--------------------------
+SELECT SALARY
+FROM Employees
+WHERE SALARY <= 10000
+ORDER BY SALARY;
+
+6. Greaterthan or equalto >=:
+--------------------------------
+SELECT SALARY
+FROM Employees
+WHERE SALARY >= 10000
+ORDER BY SALARY;
+
+--------------------------------------------
+Day 6: 17-07-2023:
+------------------
+4. Special Operator:
+---------------------
+1. IN
+2. BETWEEN_AND
+3. LIKE
+4. ILIKE
+5. ILIKE ANY
+6. IS NULL
+
+1. IN:
+-------
+It is used to pick the more the one records from the table.
+
+SELECT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME IN ('Neena', 'Lex');
+
+2. BETWEEN_AND:
+---------------
+It is used to pick the records from intermediate level.
+
+SELECT SALARY
+FROM Employees
+WHERE SALARY BETWEEN 10000 AND 12000
+ORDER BY SALARY ASC;
+
+SELECT first_name
+FROM Employees
+where first_name between 'Alana' and 'Allan'
+ORDER BY first_name ASC;
+
+3. LIKE:
+---------
+Random search or Wildcard search
+
+% -> Group of words search
+_ -> Single word search
+
+select first_name
+from employees
+where first_name LIKE 'S%';
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME LIKE '%n';
+
+SELECT FIRST_NAME, last_name
+FROM Employees
+WHERE FIRST_NAME LIKE 'S%n';
+
+SELECT FIRST_NAME, last_name
+FROM Employees
+WHERE FIRST_NAME LIKE 'S_e_e_';
+
+4. ILIKE:
+----------
+It is used to disabling the case sensitive of the table.
+LIKE + ILIKE
+
+SELECT FIRST_NAME, last_name
+FROM EMPLOYEES
+WHERE FIRST_NAME ilike 'bruce';
+
+5. ILIKE ANY:
+-------------
+LIKE + ILIKE + IN
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME ILIKE ANY ('S%', 'B%')
+ORDER BY FIRST_NAME;
+
+6. IS NULL:
+-----------
+It is used to filtering the only null records from the table.
+
+NULL
+
+0 	- NOT NULL
+- 	- NOT NULL
+' '	- NOT NULL
+	- NULL
+	
+SELECT COMMISSION_PCT
+FROM EMPLOYEES
+WHERE COMMISSION_PCT IS NULL;
+
+5. Logical Operator:
+--------------------
+1. AND
+2. OR
+3. NOT
+
+1. AND:
+-------
+If our query has more than one condition we can use for AND operator.
+AND operator will returns the output when it should be Satisifed with all condition.
+
+SELECT EMPLOYEE_ID, FIRST_NAME
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'Steven'
+AND EMPLOYEE_ID = 100;
+
+SELECT FIRST_NAME, SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES
+WHERE SALARY >= 10000
+AND DEPARTMENT_ID = 90
+AND FIRST_NAME = 'Steven';
+
+2. OR:
+-------
+SELECT 'WATER'
+FROM DUAL
+WHERE 1 = 2
+OR 1 = 1
+OR 1 = 3;
+
+SELECT FIRST_NAME, SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 90
+OR FIRST_NAME = 'Steven'
+OR SALARY = 10000;
+--------------------------------------------
+Day 7: 18-07-2023:
+------------------
+NOT:
+----
+It is used to ignoring the specified record.
+Its working only with special operator.
+
+SELECT FIRST_NAME
+FROM Employees
+WHERE FIRST_NAME NOT IN ('Steven', 'Neena');
+
+SELECT FIRST_NAME
+FROM Employees
+WHERE FIRST_NAME NOT LIKE 'S%';
+
+SELECT SALARY
+FROM Employees
+WHERE SALARY NOT BETWEEN 5000 AND 10000
+ORDER BY SALARY;
+
+SELECT COMMISSION_PCT
+FROM EMPLOYEES
+WHERE COMMISSION_PCT IS NOT NULL;
+
+6. Set Operator:
+----------------
+'A' 'A' -> ||
+1 1 	-> +
+SQL SQL	-> SET operator
+
+SQL Query, SELECT Statement
+
+
+SELECT 1 FROM DUAL SET operator SELECT 1 FROM DUAL;
+
+TYPES:
+-------
+1. UNION ALL
+2. UNION
+3. INTERSECT
+4. MINUS
+
+Table creation:
+---------------
+CREATE OR REPLACE TABLE T1(T1 NUMBER);
+
+CREATE OR REPLACE TABLE T2(T2 NUMBER);
+
+Load Data:
+-----------
+INSERT ALL 
+INTO T1 VALUES(1)
+INTO T1 VALUES(2)
+INTO T1 VALUES(3)
+INTO T1 VALUES(4)
+INTO T2 VALUES(1)
+INTO T2 VALUES(2)
+INTO T2 VALUES(3)
+INTO T2 VALUES(5)
+SELECT * FROM DUAL;
+
+
+T1
+1
+2
+3
+4
+
+T2
+1
+2
+3
+5
+
+1. UNION ALL:
+--------------
+It is used to merging all the queries and return the output of statement 1 and statement.
+
+SELECT * FROM T1
+UNION ALL
+SELECT * FROM T2;
+
+1
+2
+3
+4
+1
+2
+3
+5
+
+2. UNION:
+-----------
+It is used to merging all the queries and return the output of statement 1 and statement and removing the duplicate values.
+
+SELECT * FROM T1
+UNION
+SELECT * FROM T2;
+
+1
+2
+3
+4
+5
+
+3. INTERSECT:
+-------------
+It is used to merging all the queries and return the output of statement 1 and statement 2 and displaying the only common values.
+
+SELECT * FROM T1
+INTERSECT
+SELECT * FROM T2;
+
+1
+2
+3
+
+4. MINUS:
+---------
+It is used to merging all the queries and return the output of statement 1 and statement 2 and displaying the only unmatched value from statement 1.
+
+SELECT * FROM T1
+MINUS
+SELECT * FROM T2;
+
+4
+
+Multiple statement with Multiple SET operators:
+-------------------------------------------------
+SELECT * FROM T1
+UNION ALL
+SELECT * FROM T2
+UNION 
+SELECT * FROM T1
+INTERSECT
+SELECT * FROM T2
+MINUS
+SELECT * FROM T1;
+
+5
+
+Rules:
+------
+1. The column data type should be matched with each statement.
+
+select first_name from employees
+union all
+select salary from employees; --> Error
+
+2. Number of columns should be matched with each statement.
+
+select first_name, last_name from employees
+union all
+select last_name from employees; --> Error
+
+3. ORDER BY clause should be comes in end of the statement.
+
+Functions:
+----------
+Functions are performing the user required operations.
+
+Types:
+------
+1. Pre-Defined Functions (SQL)
+2. User-Defined Functions (Snowflake)
+
+1. Pre-Defined Functions:
+-------------------------
+1. Single Row Function | Scalar Function
+2. Multiple Row Function | Group Function | Aggregate Function
+3. Window Function | Analytical Function
+4. Table Function
+5. System Function
+
+1. Single Row Function | Scalar Function:
+-----------------------------------------
+1. String Function | Character Function | Regular Expression
+2. Numeric Function
+3. Conversion Function
+4. Date Function
+5. Conditional Expression Function
+6. Context Function
+
+1. String Function:
+--------------------
+							Arguments
+1. UPPER					-> 1
+2. LOWER					-> 1
+3. INITCAP					-> 1
+4. LENGTH					-> 1
+5. LTRIM | RTRIM | TRIM		-> 1
+6. TRANSLATE				-> 3
+7. REPLACE					-> Max 3 | MIN 2
+8. REVERSE					-> 1
+9. SUBSTR					-> MAX 3 | MIN 2
+10. REGEXP_INSTR			-> MAX 4 | MIN 2
+
+1. UPPER:
+----------
+It is used to convert the any case to capital case.
+
+UPPER(ARG)
+
+ARG -> 'Str' | Column
+
+SELECT 
+	FIRST_NAME,
+	UPPER(FIRST_NAME)
+FROM
+	EMPLOYEES;
+
+SELECT 'welcome', UPPER('welcome');
+
+--------------------------------------------
+Day 8: 19-07-2023:
+------------------
+2. LOWER:
+---------
+It is used to convert the any case to lower case.
+
+LOWER(ARG)
+
+ARG -> 'STR' | COL
+
+SELECT 'WELCOME', LOWER('WELCOME');
+
+SELECT FIRST_NAME, LOWER(FIRST_NAME)
+FROM EMPLOYEES;
+
+Case Sensitive:
+---------------
+1. ILIKE / ILIKE ANY
+2. UPPER / LOWER
+3. COLLET 'en-ci-trim'
+
+SELECT FIRST_NAME
+FROM EMPLOYEES
+WHERE UPPER(FIRST_NAME) = 'BRUCE';
+
+3. INITCAP:
+------------
+It is used to convert the any case to initial capital case.
+
+INITCAP(ARG)
+
+SELECT 
+	'welcome', 
+	INITCAP('welCome wew wewew eww');
+
+SELECT 
+	FIRST_NAME, INITCAP(FIRST_NAME)
+FROM EMPLOYEES;
+
+4. LENGTH:
+----------
+It is used to counting the characters.
+
+LENGTH(ARG)
+
+ARG -> 'STR' | COL
+
+SELECT 
+	'WELCOME',
+	LENGTH('WELCOME')
+
+SELECT 
+	FIRST_NAME AS BEFORE, 
+	LENGTH(FIRST_NAME) AS AFTER
+FROM EMPLOYEES;
+
+Who all are names characters are above 5.
+
+SELECT FIRST_NAME AS BEFORE, LENGTH(FIRST_NAME) AS AFTER
+FROM EMPLOYEES
+WHERE AFTER > 5;
+
+Oracle is not accepting the alias name in WHERE clause.
+
+Snowflake is accepting the alias name is WHERE clause.
+
+5. LTRIM | RTRIM | TRIM:
+------------------------
+LTRIM:
+------
+It is used to remove the blank spaces in left side.
+
+SELECT '   WELCOME'
+FROM DUAL;
+
+SELECT 
+    '   WELCOME',
+    LENGTH('   WELCOME'),
+    LTRIM('   WELCOME'),
+    LENGTH(LTRIM('   WELCOME'));
+	
+RTRIM:
+------
+It is used to remove the empty spaces in right side.
+
+select 
+    'welcome    ', 
+    length('welcome    '),
+    rtrim('welcome    '),
+    length(rtrim('welcome    '));
+	
+TRIM:
+-----
+It is used to remove the empty spaces in both side.
+It will never remove the spaces if it is in between of the word.
+
+select
+	'    welcome    ',
+	length('    welcome    '),
+	trim('    welcome    '),
+	length(trim('    welcome    '));
+	
+6. TRANSLATE:
+--------------
+It is translating the each and every individual characters.
+If does not have any equalence it will remove the character.
+
+TRANSLATE(ARG1, ARG2, ARG3)
+
+ARG1 -> 'Str' | Col
+ARG2 -> Replace Character
+ARG3 -> Required Character
+
+Single Character Translate:
+----------------------------
+SELECT
+	'RGB',
+	TRANSLATE('RGB','R','Y');
+
+Multiple Character Translate:
+----------------------------
+SELECT
+	'RGB',
+	TRANSLATE('RGB','RG','Y');
+	
+SELECT
+	'RGB',
+	TRANSLATE('RGB','RG','YX');
+	
+Without Continuity word:
+-------------------------
+SELECT
+	'RGBRRR',
+	TRANSLATE('RGBRRR','RB','YX');
+	
+7. REPLACE:
+-----------
+It is used to replacing the entire word.
+If we are not providing 3 arg, then it will remove the marked characters.
+
+SELECT
+	'RGB',
+	REPLACE('RGB','R','Y');
+	
+SELECT
+	'RGB',
+	REPLACE('RGB','RG','Y');
+	
+SELECT
+	'RGB',
+	REPLACE('RGB','RG','YX');
+	
+SELECT
+	'RGBRRR',
+	REPLACE('RGBRRR','RB','YX');
+
+Interview Question:
+--------------------
+How many A characters involved given string.
+
+'ABACDA'
+
+--------------------------------------------
+Day 9: 20-07-2023:
+------------------
+SELECT LENGTH('ABACDA');
+
+SELECT REPLACE('ABACDA', 'A', '')
+
+SELECT LENGTH('ABACDA') - LENGTH(REPLACE('ABACDA', 'A', ''));
+
+SELECT FIRST_NAME, LENGTH(FIRST_NAME) - LENGTH(REPLACE(FIRST_NAME, 'A', ''))
+FROM EMPLOYEES;
+
+8. REVERSE:
+-----------
+It is reversing the given string.
+
+REVERSE(ARG1)
+
+SELECT REVERSE('Welcome')
+FROM DUAL;
+
+Palindrome:
+-----------
+LEVEL
+MALAYALAM
+
+Given string is palindrome or not.
+
+SELECT 'Yes, It is Palindrome'
+FROM DUAL
+WHERE REVERSE('LEVEL') = 'LEVEL';
+
+9. SUBSTR:
+----------
+It is used to broke the text and displaying the required string.
+Max - 3 Arg
+Min - 2 Min
+
+SUBSTR(ARG1, ARG2, ARG3)
+
+ARG1 -> 'Str' | Col
+ARG2 -> Starting Position
+ARG3 -> Ending Position
+
+A1	W E L C O M E
+A2	1 2 3 4 5 6 7
+A3		  1 2 3 4
+	  
+SELECT 
+	'WELCOME',
+	SUBSTR('WELCOME',4,3);
+	
+SELECT 
+	'WELCOME',
+	SUBSTR('WELCOME',4);
+	
+10. REGEXP_INSTR:
+-----------------
+It is used to displaying the position of the required character.
+Min 2 Arg
+Max 4 Arg
+
+REGEXP_INSTR(ARG1, ARG2, ARG3, ARG4)
+
+ARG1 -> 'Str' | Col
+ARG2 -> Searching Character
+ARG3 -> Starting with
+ARG4 -> Occurrence
+
+A1	W E L C O M E 
+A2	  E         E	  
+A3	1 2 3 4 5 6 7  --> Output 
+A4    1         2   
+
+SELECT 
+	'WELCOME', 
+	REGEXP_INSTR('WELCOME', 'C'); --> 4
+
+SELECT 
+	'WELCOME', 
+	REGEXP_INSTR('WELCOME', 'E', 1); --> 2
+	
+SELECT 
+	'WELCOME', 
+	REGEXP_INSTR('WELCOME', 'E', 3); --> 7
+
+SELECT 
+	'WELCOME', 
+	REGEXP_INSTR('WELCOME', 'E', 1, 2); --> 7
+
+2. Numeric Function:
+--------------------
+1. ABS
+2. MOD
+3. ROUND | TO_NUMBER
+4. TRUNC
+
+
+1. ABS:
+-------
+It is converting the negative value to positive value.
+
+-1		=> 1
+-100	=> 100
+
+SELECT -98765, ABS(-98765);
+
+2. MOD:
+-------
+It is used to displaying the reminder value.
+
+SELECT 10, 3, MOD(10,3);
+
+3. ROUND:
+---------
+It is displaying the whole value. 
+If it is above 5 it will display the next value. 
+If it is below 5 it will display the current value.
+MIN 1 ARG
+MAX 2 ARG
+
+1                 2  
+0 1 2 3 4 5 6 7 8 9 
+
+1.45 -> 1
+
+1.87 -> 2
+
+SELECT 
+	1.45, ROUND(1.45), 
+	1.87, ROUND(1.87);
+	
+SELECT ROUND(1.23); -> 1
+	
+SELECT ROUND(1.63); -> 2
+
+SELECT ROUND(1.23123456789, 3); -> 1.231
+	
+SELECT ROUND(1.23173456789, 3); -> 1.232
+
+SELECT ROUND(1.23), TO_NUMBER(1.23); --> 1
+	
+SELECT ROUND(1.63),TO_NUMBER(1.63); --> 2
+
+SELECT ROUND(1.23123456789, 3), TO_NUMBER(1.23123456789, 3); --> 1.231
+	
+SELECT ROUND(1.23173456789, 3), TO_NUMBER(1.23123456789, 3); --> 1.232
+
+SELECT ROUND(1.123); --> 1
+
+SELECT TO_NUMBER(1.123); --> 1
+
+SELECT ROUND(1.123, 2); --> 1.12
+
+SELECT TO_NUMBER(1.123, 2); -->1
+
+
+Table Creation:
+----------------
+CREATE OR REPLACE TABLE ODS.HR.EMAIL
+AS
+SELECT EMAIL||'@EMAIL.COM'AS MAIL
+FROM EMPLOYEES;
+
+--------------------------------------------
+Day 10: 21-07-2023:
+------------------
+Interview Question:
+--------------------
+Display the user name only from EMAIL table?
+
+SKING@EMAIL.COM -> SKING
+
+SELECT MAIL, SUBSTR(MAIL,1,REGEXP_INSTR(MAIL,'@',1,1)-1)
+FROM EMAIL;
+
+SELECT MAIL, REGEXP_INSTR(MAIL,'@',1,1)-1
+FROM EMAIL;
+
+4. TRUNC:
+---------
+It is used to remove the decimal values even its above 5.
+
+SELECT 
+	1.45, TRUNC(1.45), 
+	1.87, TRUNC(1.87);
+
+SELECT TRUNC(1.23123456789, 3), TRUNC(1.23173456789, 3); 
+
+3. Conversion Function:
+-----------------------
+It is used to converting the date format (SQL) and data type (Snowflake).
+
+US	-	MM/DD/YYYY
+IN	-	DD/MM/YYYY
+ORACLE		DD-MON-YY
+
+SNOWFLAKE	YYYY-MM-DD
+
+TYPES:
+------
+1. TO_CHAR
+2. TO_DATE
+3. CAST | :: 
+
+1. TO_CHAR:
+-----------
+It is used to convert the snowflake date format to user required date format.
+
+TO_CHAR(ARG1,ARG2)
+
+ARG1 -> 'Date' | Col
+ARG2 -> User required Date Format
+
+SELECT HIRE_DATE, TO_CHAR(HIRE_DATE, 'DD/MM/YYYY')
+FROM EMPLOYEES;
+
+SELECT 
+	HIRE_DATE, 
+	TO_CHAR(HIRE_DATE, 'DD/MM/YYYY') AS IND, 
+	TO_CHAR(HIRE_DATE, 'MM/DD/YYYY') AS US
+FROM EMPLOYEES;
+
+Display only month and year from the hire date column.
+
+SELECT 
+	HIRE_DATE,
+	TO_CHAR(HIRE_DATE, 'MM/YYYY')
+FROM 
+	EMPLOYEES;
+
+DATE FORMAT LIST:
+-----------------
+12/07/2023
+
+DD 			- 12
+MM 			- 07
+YY 			- 23
+YYYY 		- 2023
+DY 			- FRI
+MON 		- JUL
+HH			- HOURS
+MI			- MINUTES
+SS			- SECONDS
+AM / PM		- AFTER MERIDIAM OR POST MERIDIAM
+
+SELECT 
+	HIRE_DATE,
+	TO_CHAR(HIRE_DATE, 'DD$MM*YYYY HH+MI-SS AM')
+FROM 
+	EMPLOYEES;
+	
+2. TO_DATE:
+-----------
+It is used to convert and dispalying the snowflake date format from user date format.
+
+TO_DATE(ARG1, ARG2)
+
+ARG1 -> 'Date' | Col
+ARG2 -> Date format of ARG1
+
+SELECT '21/08/2023', TO_DATE('21/08/2023', 'DD/MM/YYYY');
+--------------------------------------------------------------------
+--------------------------------------------
+Day 11: 24-07-2023:
+------------------
+Interview question:
+---------------------
+Who are joined Jan month from the employees table.
+
+SELECT FIRST_NAME, HIRE_DATE
+FROM EMPLOYEES
+WHERE TO_CHAR(HIRE_DATE, 'MON') = 'Jan';
+
+4. Date Function:
+-----------------
+1. ADD_MONTHS
+2. MONTHS_BETWEEN
+3. LAST_DAY
+4. DATE_TRUNC
+
+SELECT CURRENT_DATE();
+
+SHOW PARAMETERS;
+
+ALTER SESSION
+SET TIMEZONE = 'Asia/Kolkata';
+
+1. ADD_MONTHS:
+---------------
+It is used to adding the months.
+
+SELECT CURRENT_DATE(), CURRENT_DATE()+1;
+
+ADD_MONTHS(ARG1, ARG2)
+
+ARG1 -> 'Actual Date' | Col
+ARG2 -> Required Increase / Decrease number
+
+SELECT CURRENT_DATE(), ADD_MONTHS(CURRENT_DATE(),1);
+
+SELECT CURRENT_DATE(), ADD_MONTHS(CURRENT_DATE(),-2);
+
+SELECT HIRE_DATE, ADD_MONTHS(HIRE_DATE, 12)
+FROM EMPLOYEES;
+
+Interview Question:
+-------------------
+How many years of experience has each employees since the hire_date.
+
+SELECT 
+	FIRST_NAME,
+	HIRE_DATE, 
+	ABS(ROUND((HIRE_DATE - CURRENT_DATE)/365)) || ' years' AS YOE
+FROM EMPLOYEES;
+
+2. MONTHS_BETWEEN:
+------------------
+It is used to displaying the in between months of 2 dates.
+
+MONTHS_BETWEEN(ARG1, ARG2)
+
+ARG1 -> DATE1
+ARG2 -> DATE2
+
+SELECT 
+	ROUND(
+	MONTHS_BETWEEN(
+		TO_DATE('2023-01-01','YYYY-MM-DD'), 
+		TO_DATE('2023-12-31','YYYY-MM-DD')
+	)
+	);
+	
+3. LAST_DAY:
+------------
+It is used to displaying the last day of the month.
+
+SELECT LAST_DAY(CURRENT_DATE);
+
+SELECT HIRE_DATE AS TODAYS_DATE, LAST_DAY(HIRE_DATE)
+FROM EMPLOYEES;	
+	
+4. DATE_TRUNC:
+----------------
+It is used to displaying the first day of the month.
+	
+DATE_TRUNC(ARG1, ARG2)
+
+ARG1 -> MONTH
+ARG2 -> COL
+
+SELECT HIRE_DATE AS TODAYS_DATE, DATE_TRUNC(MONTH, HIRE_DATE)
+FROM EMPLOYEES;	
+	
+5. Conditional Expression Function:
+-----------------------------------
+1. DECODE
+2. CASE
+3. NVL
+4. COALESCE
+5. NULLIF
+
+1. DECODE:
+----------
+If 1st Argument and 2nd Argument is matched then it will displaying the 3rd Argument.
+If not matched then dispalying 4th Argument.
+
+Min: 4 | MAX: UNLIMITED
+
+DECODE(ARG1, ARG2, ARG3, ARG4)
+
+SELECT DECODE(1,2,3,4);
+
+SELECT FIRST_NAME, DECODE(FIRST_NAME,'Steven','Matched','Not Matched')
+FROM EMPLOYEES;
+
+SELECT 
+	FIRST_NAME, 
+	DECODE(FIRST_NAME,'Steven','ST','Neena', 'NN','Lex','LX','Error')
+FROM EMPLOYEES;
+	
+--------------------------------------------
+Day 12: 25-07-2023:
+------------------	
+Interview Question:
+-------------------
+How many years of experience has each employees since the hire_date use ADD_MONTHS.
+
+SELECT 
+	HIRE_DATE,
+    CURRENT_DATE,
+	ROUND(MONTHS_BETWEEN(CURRENT_DATE, HIRE_DATE)/12) AS YOE
+FROM EMPLOYEES;
+
+2. CASE:
+--------
+FIRST_NAME = 'Steven' -> St
+FIRST_NAME = 'Neena' -> Nn
+FIRST_NAME = 'Bruce' -> Br
+
+
+SELECT 
+	FIRST_NAME,
+	CASE
+		WHEN FIRST_NAME = 'Steven' THEN 'St'
+		WHEN FIRST_NAME = 'Neena' THEN 'Nn'
+		WHEN FIRST_NAME = 'Bruce' THEN 'Br'
+		ELSE
+			'Not Matched'
+	END
+FROM
+	EMPLOYEES;
+	
+
+SELECT 
+	SALARY,
+	CASE
+		WHEN SALARY > 10000 THEN 'Salary is above 10k'
+		ELSE
+			'Salary is below 10k'
+	END
+FROM
+	EMPLOYEES;
+
+SELECT
+	COMMISSION_PCT,
+	CASE
+		WHEN COMMISSION_PCT IS NULL THEN 0
+		WHEN COMMISSION_PCT IS NOT NULL THEN COMMISSION_PCT
+	END AS CASE
+FROM 
+	EMPLOYEES;
+
+3. NVL:
+--------
+It will dispalying the first not null value.
+
+NVL(ARG1, ARG2)
+
+NULL, 2 	-> 2
+1, NULL 	-> 1
+1, 2		-> 1
+NULL, NULL 	-> NULL
+
+SELECT NVL(NULL, 2); --2
+SELECT NVL(1, NULL); --1
+SELECT NVL(1, 2);	--1
+SELECT NVL(NULL, NULL);	--NULL
+
+COMMENTS:
+-----------
+It will hide the code in query editor
+
+Single Row Comment =>    --
+Multiple Row Comment =>  /*   */
+
+--Single Row Comment:
+-----------------------
+select first_name 
+from employees;
+
+Multiple Row Comment:
+---------------------
+select first_name 
+/*
+it 
+is
+first 
+name 
+of 
+employee
+*/
+from employees;
+
+4. COALESCE:
+------------
+It will dispalying the first not null value. But it has unlimited args.
+
+COALESCE(ARG1, ARG2, ARG3,.. ARGN)
+
+SELECT COALESCE(1,2,3,4,5);--1
+SELECT COALESCE(NULL,NULL,3,NULL,NULL);--3
+SELECT COALESCE(NULL,NULL,'a',NULL,NULL);--a
+SELECT COALESCE(NULL,NULL,NULL,NULL,NULL);--NULL
+
+5. NULLIF:
+----------
+If arg1 and arg2 is matched then it dispalying the NULL value or else it will displaying the first arg value.
+
+NULLIF(ARG1, ARG2)
+
+SELECT NULLIF(1, 2); --> 1
+SELECT NULLIF(1, 1); --> NULL
+
+6. Context Function:
+---------------------
+It is used to know information of snowflake account.
+It does not has any args.
+
+1. CURRENT_DATE
+2. CURRENT_TIMESTAMP
+3. CURRENT_REGION
+4. CURRENT_ACCOUNT
+5. CURRENT_ROLE
+7. CURRENT_SCHEMA
+8. CURRENT_DATABASE
+
+SELECT CURRENT_DATE();
+SELECT CURRENT_TIMESTAMP();
+SELECT CURRENT_REGION();
+SELECT CURRENT_ACCOUNT();
+SELECT CURRENT_ROLE();
+SELECT CURRENT_SCHEMA();
+SELECT CURRENT_DATABASE();
+
+2. Multiple Row Function | Group Function | Aggregate Function:
+---------------------------------------------------------------
+It can accept only single argument.
+
+1. SUM
+2. AVG
+3. MIN
+4. MAX
+5. COUNT
+
+Clauses:
+--------
+1. Group by
+2. Having
+
+SELECT SUM(SALARY)
+FROM EMPLOYEES;--691,416
+
+SELECT AVG(SALARY)
+FROM EMPLOYEES; --6,461
+
+SELECT MIN(SALARY)
+FROM EMPLOYEES; --2100
+
+SELECT MAX(SALARY)
+FROM EMPLOYEES; --24000
+
+SELECT COUNT(SALARY)
+FROM EMPLOYEES; --107
+
+Rules:
+------
+1. Group functions works only on single argument.
+
+SELECT SUM(SALARY, EMPLOYEE_ID)
+FROM EMPLOYEES;--> ERROR
+
+2. It is ignoring the Null values.
+
+SELECT COUNT(DEPARTMENT_ID)
+FROM EMPLOYEES;-->106
+
+3. (*) is works only COUNT function to identify the all the rows of the table.
+
+How many rows in this particular table.
+
+SELECT COUNT(*)
+FROM EMPLOYEES;--107
+
+SELECT COUNT(1)
+FROM EMPLOYEES;
+
+-------------------------------------------
+Day 13: 26-07-2023:
+--------------------
+4. SUM & AVG functions works only for numbers.
+
+SELECT AVG(FIRST_NAME)
+FROM EMPLOYEES; --> error
+
+5. Min & Max functions works both characters & numbers.
+
+6. A actual column comes with any group function, we should mentioned that actual column in group by clause.
+
+SELECT FIRST_NAME, COUNT(1)
+FROM EMPLOYEES;
+
+Group By:
+---------
+It is grouping the same kind of data.
+
+SELECT DEPARTMENT_ID, COUNT(DEPARTMENT_ID)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID;
+
+Display the department wise overal salary
+
+SELECT DEPARTMENT_ID, SUM(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY 1;
+
+Display the department wise lowest salary
+
+SELECT DEPARTMENT_ID, MIN(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY 1;
+
+Displaying the name wise highest salary
+
+SELECT FIRST_NAME, MAX(SALARY)
+FROM EMPLOYEES
+GROUP BY FIRST_NAME
+ORDER BY 1;
+
+Display the department wise how many employees are working and what is the lowest and highest salary, avg of department wise salary.
+
+SELECT DEPARTMENT_ID, COUNT(*), MIN(SALARY), MAX(SALARY), AVG(SALARY), SUM(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID;
+
+Display the department wise how many employees are working and what is the lowest and highest salary, avg of department wise salary and display the above employees in every departments.
+
+SELECT DEPARTMENT_ID, COUNT(*), MIN(SALARY), MAX(SALARY), AVG(SALARY), SUM(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID;
+
+WHERE clause does not allow the aggregate functions.
+
+7. If we are passing any condition in group function, we should use the HAVING clause instead of WHERE clause.
+
+HAVING:
+-------
+It is used to validate the condition.
+But it specifically created for Aggregate function.
+
+SELECT 1
+FROM DUAL
+HAVING 1 = 2;
+
+SELECT DEPARTMENT_ID, COUNT(*), MIN(SALARY), MAX(SALARY), AVG(SALARY), SUM(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+HAVING COUNT(*) > 5
+ORDER BY DEPARTMENT_ID;
+
+-------------------------------------------
+Day 14: 27-07-2023:
+--------------------
+
+3. Window Function | Analytical Function - 99%:
+-----------------------------------------
+1. RANK
+2. DENSE_RANK
+3. ROW_NUMBER
+4. LEAD
+5. LAG
+6. LISTAGG
+
+Over:
+--------
+Order by 
+Partition by
+
+1. RANK:
+---------
+It returns the rank of each value.
+If two values are the same, they have display the same rank and skip the next rank.
+
+SELECT 
+	FIRST_NAME AS STUDENT_NAME,
+	SALARY AS MARK,
+	RANK() OVER(ORDER BY SALARY DESC)
+FROM
+	EMPLOYEES;
+
+2. DENSE_RANK:
+--------------
+It returns the rank of each value.
+If two values are the same, they have display the same rank and never skip the next rank.
+
+SELECT 
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(ORDER BY SALARY DESC)
+FROM
+	EMPLOYEES;
+	
+3. ROW_NUMBER:
+--------------
+It will generate each unique sequence number for every rows.
+
+SELECT 
+	FIRST_NAME, 
+	LAST_NAME, 
+	ROW_NUMBER() OVER(ORDER BY FIRST_NAME)
+FROM
+	EMPLOYEES;
+	
+4. LEAD:
+---------
+Accessing the next row within a same row.
+
+LEAD(1,2,3)
+
+ARG1 -> Actual column
+ARG2 -> Which row you want access
+ARG3 -> For empty Row
+
+SELECT 
+	FIRST_NAME,
+	LEAD(FIRST_NAME, 2, 'No name') OVER(ORDER BY FIRST_NAME)
+FROM
+	EMPLOYEES;
+	
+5. LAG:
+-------
+Accessing the prior row within a same row.
+
+SELECT 
+	FIRST_NAME,
+	LAG(FIRST_NAME, 2, 'No name') OVER(ORDER BY FIRST_NAME)
+FROM
+	EMPLOYEES;
+	
+6. LISTAGG:
+-----------
+It is converting the multiple rows to single row.
+
+LISTAGG(ARG1, ARG2)
+
+ARG1 -> Actual COl
+ARG2 -> Seperator
+
+SELECT LISTAGG(FIRST_NAME, ' ')
+FROM EMPLOYEES;
+
+PARTITION BY:
+--------------
+It is used to break the data into small paritions and displaying the seperate rank.
+
+SELECT 
+    DEPARTMENT_ID,
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY DESC) AS RNK
+FROM
+	EMPLOYEES;
+	
+WHERE clause does not support Windows function & Aggregate Function.
+
+SELECT 
+    DEPARTMENT_ID,
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY DESC) AS RNK
+FROM
+	EMPLOYEES
+WHERE 
+	RNK = 1; --> ERROR
+	
+SELECT 
+    DEPARTMENT_ID,
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY DESC) AS RNK
+FROM
+	EMPLOYEES
+HAVING 
+	RNK = 1;--> ERROR
+	
+1. WITH clause
+2. QUALIFY clause
+3. Inline View
+
+WHERE clause does not support the Alias name in Oracle but Snowflake can accept.
+
+1. WITH clause / Common Table Expression (CTE):
+-----------------------------------------------
+WITH CTE
+AS
+(
+	SELECT FIRST_NAME AS NAME, LAST_NAME
+	FROM HR.EMPLOYEES
+)
+SELECT * FROM CTE
+WHERE NAME = 'Steven';
+
+WITH A
+AS
+(
+SELECT 
+    DEPARTMENT_ID,
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY DESC) AS RNK
+FROM
+	EMPLOYEES)
+SELECT * FROM A
+WHERE 
+	RNK = 1;
+	
+WITH X
+AS
+(
+SELECT DEPARTMENT_ID, COUNT(*) AS CNT, MIN(SALARY), MAX(SALARY), AVG(SALARY), SUM(SALARY)
+FROM EMPLOYEES
+GROUP BY DEPARTMENT_ID
+ORDER BY DEPARTMENT_ID
+)
+SELECT * FROM X
+WHERE CNT > 5;
+
+QUALIFY:
+----------
+It is used to validate the condition for only Analytical Function.
+
+SELECT 
+    DEPARTMENT_ID,
+	FIRST_NAME,
+	SALARY,
+	DENSE_RANK() OVER(PARTITION BY DEPARTMENT_ID ORDER BY SALARY DESC) AS RNK
+FROM
+	EMPLOYEES
+QUALIFY 
+	RNK = 1;
+	
+-------------------------------------------
+Day 15: 28-07-2023:
+--------------------
+4. Table Function:
+------------------
+1. VALIDATE 
+2. VALIDATE_PIPE_LOAD
+3. SPLIT_TO_TABLE
+
+3. SPLIT_TO_TABLE:
+------------------
+SPLIT_TO_TABLE(ARG1, ARG2)
+
+ARG1 -> 'Text'
+ARG2 -> Seperator
+
+SELECT *
+FROM TABLE(SPLIT_TO_TABLE('A,B,C',','));
+
+SELECT VALUE 
+FROM TABLE(SPLIT_TO_TABLE('1,2,3,4', ','))
+UNION
+SELECT VALUE 
+FROM TABLE(SPLIT_TO_TABLE('1,2,3,5', ','));
+
+
+A,B,C
+
+A
+B
+C
+
+ROW - COL --> LISTAGG
+COL - ROW --> SPLIT_TO_TABLE
+
+5. SYSTEM FUNCTION:
+-------------------
+1. SYSTEM$TYPEOF
+2. SYSTEM$CANCEL_QUERY
+
+1. SYSTEM$TYPEOF:
+-----------------
+It is used to displaying the what kind of data type are used for given value or column.
+
+123 --> NUMBER
+'ABC' --> VARCHAR
+
+SELECT SYSTEM$TYPEOF(123);
+
+SELECT SYSTEM$TYPEOF('ABC');
+
+
+SELECT 
+	SALARY, SYSTEM$TYPEOF(SALARY), 
+	HIRE_DATE, SYSTEM$TYPEOF(HIRE_DATE), 
+	FIRST_NAME,SYSTEM$TYPEOF(FIRST_NAME)
+FROM
+	EMPLOYEES;
+	
+2. SYSTEM$CANCEL_QUERY:
+------------------------
+It is used to stop the query while running
+SELECT SYSTEM$CANCEL_QUERY('01adec4b-3200-d22f-0000-00056ce6b091');
+
+Joins:
+-------
+It is combined multiple tables and displaying the single table data.
+
+1. CROSS JOIN / CARTESIAN PRODUCT
+2. EQUI JOIN / INNER JOIN
+3. OUTER JOIN
+	3.1 LEFT OUTER JOIN
+	3.2 RIGHT OUTER JOIN
+	3.3 FULL OUTER JOIN
+4. SELF JOIN
+
+Approaches:
+------------
+ANSI Method (American National Standar Institute)
+Oracle Method
+
+1. CROSS JOIN:
+--------------
+CREATE OR REPLACE DATABASE ODS;
+
+CREATE OR REPLACE TABLE T1(A NUMBER);
+
+CREATE OR REPLACE TABLE T2(B NUMBER);
+
+INSERT INTO T1 VALUES(1),(2),(3),(4);
+
+INSERT INTO T2 VALUES(1),(2),(3),(4);
+
+Oracle Method:
+--------------
+SELECT 
+	A , B
+FROM
+	T1 , T2;
+	
+ANSI Method:
+-------------
+SELECT 
+	A , B
+FROM
+	T1 CROSS JOIN T2;
+	
+2. EQUI JOIN / INNER JOIN:
+--------------------------
+SELECT FIRST_NAME, DEPARTMENT_ID FROM ODS_SH.HR.EMPLOYEES;
+
+SELECT DEPARTMENT_ID, DEPARTMENT_NAME FROM ODS.PUBLIC.DEPARTMENTS;
+
+SELECT
+	FIRST_NAME,  
+	EMPLOYEES.DEPARTMENT_ID,
+	DEPARTMENTS.DEPARTMENT_ID, 
+	DEPARTMENT_NAME 
+FROM
+	ODS_SH.HR.EMPLOYEES,
+	ODS.PUBLIC.DEPARTMENTS
+WHERE
+	EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID;
+	
+
+WHERE <CONDITION> --> Actual Column, Single Row Function
+HAVING <CONDITION> --> Aggregate Function
+QUALIFY <CONDITION> --> Analytical Function
+
+-------------------------------------------
+Day 16: 31-07-2023:
+--------------------
+
+CREATE TABLE COURSE(CID NUMBER, CNAME VARCHAR);
+INSERT INTO COURSE VALUES(10,'SQL'),(20,'JAVA'),(30,'UNIX');
+
+CREATE TABLE STUDENT(SID NUMBER, SNAME VARCHAR, CID NUMBER);
+INSERT INTO STUDENT VALUES(1, 'Steven', 20), (2,'Neena', 10), (3, 'Lex', Null);
+
+CREATE TABLE COURSE(CID NUMBER, CNAME VARCHAR(10));
+INSERT all 
+    INTO COURSE VALUES(10,'SQL')
+    into course values(20,'JAVA')
+    into course values(30,'UNIX')
+    select * from dual;
+
+CREATE TABLE STUDENT(SID NUMBER, SNAME VARCHAR(10), CID NUMBER);
+INSERT all 
+    INTO STUDENT VALUES(1, 'Steven', 20) 
+    into student values(2,'Neena', 10)
+    into student values(3, 'Lex', Null)
+    select * from dual;
+	
+Inner Join / Equi Join:
+-----------------------
+It is displaying the only for matched records.
+
+Oracle Method:
+------------------
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM
+	STUDENT,
+	COURSE
+WHERE
+	STUDENT.CID = COURSE.CID;
+	
+ANSI Method:
+------------
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM 
+	STUDENT INNER JOIN
+	COURSE
+ON
+	STUDENT.CID = COURSE.CID;
+	
+3. OUTER JOIN:
+----------------
+3.1 LEFT OUTER JOIN / LEFT JOIN:
+--------------------------------
+It is displaying matched records and unmatched from left side.
+
+Inner Join + Left (Unmatched)
+
+ORACLE:
+-------
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM
+	STUDENT,
+	COURSE
+WHERE
+	STUDENT.CID = COURSE.CID (+);
+	
+SELECT
+	COURSE.CID,
+	CNAME,
+	SID,
+	SNAME,
+	STUDENT.CID
+FROM
+	COURSE, STUDENT
+WHERE	
+	COURSE.CID = STUDENT.CID (+);
+	
+	
+ambiguous column -> Duplicate Column name
+	
+	
+ANSI Method:
+---------------
+SELECT
+	COURSE.CID,
+	CNAME,
+	SID,
+	SNAME,
+	STUDENT.CID	
+FROM
+	COURSE LEFT OUTER JOIN STUDENT
+ON
+	COURSE.CID = STUDENT.CID;
+	
+
+3.2 RIGHT OUTER JOIN:
+--------------------------
+It is displaying the matched and unmatched from right side records.
+
+Inner + Right (unmatched)
+
+ORACLE:
+---------
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM
+	STUDENT, COURSE  
+WHERE
+	STUDENT.CID (+) = COURSE.CID;
+	
+ANSI:
+-----
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM
+	STUDENT RIGHT OUTER JOIN COURSE
+ON
+	STUDENT.CID = COURSE.CID;
+	
+3.3 FULL OUTER JOIN:
+--------------------
+It is displaying all matched and unmatched records.
+
+Inner + Right + Left
+
+ANSI
+-----
+SELECT
+	SID,
+	SNAME,
+	STUDENT.CID,
+	COURSE.CID,
+	CNAME
+FROM
+	STUDENT FULL JOIN COURSE
+ON
+	STUDENT.CID = COURSE.CID;
+
+INTERVIEW QUESTION:
+------------------
+T1			T2
+1			1
+1			2
+1			NULL
+2
+2
+3
+NULL
+
+Inner Join: 5
+Right Join: 6
+Left Join:	7
+Full Join:	8
+Cross Join: 21
+
+-------------------------------------------
+Day 17: 01-08-2023:
+--------------------
+
+4. SELF JOIN:
+-------------
+It is used to joining with same table.
+SELF JOIN - INNER JOIN
+
+Table Alias:
+-------------
+It is used to provide the alternate name of the existing table name.
+
+Oracle:
+-------
+SELECT
+	EMP.EMPLOYEE_ID, 
+	EMP.FIRST_NAME, 
+	EMP.MANAGER_ID,
+	MAN.EMPLOYEE_ID AS EMP_ID, 
+	MAN.FIRST_NAME AS MANAGER_NAME
+FROM
+	EMPLOYEES AS EMP,
+	EMPLOYEES AS MAN
+WHERE
+	EMP.MANAGER_ID = MAN.EMPLOYEE_ID;
+
+ANSI:
+------
+SELECT
+	EMP.EMPLOYEE_ID, 
+	EMP.FIRST_NAME, 
+	EMP.MANAGER_ID,
+	MAN.EMPLOYEE_ID AS EMP_ID, 
+	MAN.FIRST_NAME AS MANAGER_NAME
+FROM
+	EMPLOYEES AS EMP INNER JOIN
+	EMPLOYEES AS MAN
+ON
+	EMP.MANAGER_ID = MAN.EMPLOYEE_ID;
+	
+3 Tables Joining:
+-----------------
+HR.EMPLOYEES
+	DEPARTMENT_ID
+HR.DEPARTMENTS
+	LOCATION_ID
+HR.LOCATIONS
+
+ORACLE:
+-------
+SELECT 
+	FIRST_NAME,
+	EMPLOYEES.DEPARTMENT_ID,
+	DEPARTMENTS.DEPARTMENT_ID,
+	DEPARTMENT_NAME,
+	DEPARTMENTS.LOCATION_ID,
+	LOCATIONS.LOCATION_ID,
+	CITY
+FROM
+	HR.EMPLOYEES,
+	HR.DEPARTMENTS,
+	HR.LOCATIONS
+WHERE 
+	EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+AND
+	DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID;
+
+ANSI:
+------
+SELECT
+	FIRST_NAME,
+	EMPLOYEES.DEPARTMENT_ID,
+	DEPARTMENTS.DEPARTMENT_ID,
+	DEPARTMENT_NAME,
+	DEPARTMENTS.LOCATION_ID,
+	LOCATIONS.LOCATION_ID,
+	CITY
+FROM HR.EMPLOYEES INNER JOIN HR.DEPARTMENTS 
+ON EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+INNER JOIN HR.LOCATIONS
+ON DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID;
+
+4 TABLES:
+---------
+HR.EMPLOYEES
+	DEPARTMENT_ID
+HR.DEPARTMENTS
+	LOCATION_ID
+HR.LOCATIONS
+	COUNTRY_ID
+HR.COUNTRIES
+
+ORACLE:
+---------
+SELECT
+	FIRST_NAME,
+	EMPLOYEES.DEPARTMENT_ID,
+	DEPARTMENTS.DEPARTMENT_ID,
+	DEPARTMENT_NAME,
+	DEPARTMENTS.LOCATION_ID,
+	LOCATIONS.LOCATION_ID,
+	CITY,
+	LOCATIONS.COUNTRY_ID,
+	COUNTRIES.COUNTRY_ID,
+	COUNTRY_NAME
+FROM
+	HR.EMPLOYEES,
+	HR.DEPARTMENTS,
+	HR.LOCATIONS,
+	HR.COUNTRIES
+WHERE
+	EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+AND
+	DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID
+AND
+	LOCATIONS.COUNTRY_ID = COUNTRIES.COUNTRY_ID;
+
+ANSI:
+-----
+SELECT
+	FIRST_NAME,
+	EMPLOYEES.DEPARTMENT_ID,
+	DEPARTMENTS.DEPARTMENT_ID,
+	DEPARTMENT_NAME,
+	DEPARTMENTS.LOCATION_ID,
+	LOCATIONS.LOCATION_ID,
+	CITY,
+	LOCATIONS.COUNTRY_ID,
+	COUNTRIES.COUNTRY_ID,
+	COUNTRY_NAME	
+FROM HR.EMPLOYEES INNER JOIN HR.DEPARTMENTS
+ON EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+INNER JOIN HR.LOCATIONS
+ON DEPARTMENTS.LOCATION_ID = LOCATIONS.LOCATION_ID
+INNER JOIN HR.COUNTRIES
+ON LOCATIONS.COUNTRY_ID = COUNTRIES.COUNTRY_ID;
+
+5 TABLES:
+---------
+HR.EMPLOYEES
+	DEPARTMENT_ID
+HR.DEPARTMENTS
+	LOCATION_ID
+HR.LOCATIONS
+	COUNTRY_ID
+HR.COUNTRIES
+	REGION_ID
+HR.REGIONS
+
+------------------------------------------
+Day 18: 02-08-2023:
+-------------------
+
+Subquery:
+---------
+A query with in another query is known as sub query.
+Subquery will execute first after the main query the will execute.
+
+
+Get department name of Adam working?
+
+1.
+SELECT * FROM EMPLOYEES
+WHERE FIRST_NAME = 'Adam';
+
+2.
+SELECT * FROM DEPARTMENTS
+WHERE DEPARTMENT_ID = 50; --> Hard Code / Static
+
+SELECT * FROM DEPARTMENTS
+WHERE DEPARTMENT_ID = (SELECT DEPARTMENT_ID FROM EMPLOYEES
+						WHERE FIRST_NAME = 'Adam');  --> Dynamic 				
+						
+Types:
+------
+1. Scalar Subquery
+2. Inline View
+3. Nested Subquery
+4. Single Row Subquery
+5. Multiple Row Subquery
+6. Correlated Subquery
+
+We can write the subquery below clauses:
+-----------------------------------------
+SELECT () -> Scalar Subquery
+FROM () -> Inline View
+WHERE () -> (Single Row Subquery, Multiple Row Subquery, Correlated Subquery)
+
+
+1. Scalar Subquery:
+-------------------
+SELECT (SELECT 1 FROM DUAL) + (SELECT 1 FROM DUAL)
+FROM DUAL;
+
+2. Inline View:
+---------------
+
+SELECT * 
+FROM (SELECT * FROM EMPLOYEES WHERE DEPARTMENT_ID = 90);
+
+Identify the 3rd highest salary.
+
+1. Inline View
+2. With Clause
+3. Qualify
+
+WITH TMP
+AS
+(
+SELECT FIRST_NAME, SALARY, DENSE_RANK() OVER(ORDER BY SALARY DESC) AS RNK
+FROM EMPLOYEES
+)
+SELECT * FROM TMP
+WHERE RNK = 3;
+
+SELECT FIRST_NAME, SALARY, DENSE_RANK() OVER(ORDER BY SALARY DESC) AS RNK
+FROM EMPLOYEES
+QUALIFY RNK = 3;
+
+SELECT * FROM 
+(SELECT FIRST_NAME, SALARY, DENSE_RANK() OVER(ORDER BY SALARY DESC) AS RNK
+FROM EMPLOYEES)
+WHERE RNK = 3;
+
+3. Nested Subquery:
+-------------------
+SELECT 'WELCOME'
+FROM DUAL
+WHERE 1 = (SELECT 1 FROM DUAL
+			WHERE 2 = (SELECT 2 FROM DUAL));
+			
+4. Single Row Subquery:
+-----------------------
+A subquery generate a only single row its called single row Subquery.
+
+Get department name of Adam working?
+
+
+SELECT *
+FROM EMPLOYEES
+WHERE FIRST_NAME = 'Adam';
+
+SELECT *
+FROM DEPARTMENTS
+WHERE DEPARTMENT_ID = 50; --> HARD CODE
+
+SELECT *
+FROM DEPARTMENTS
+WHERE DEPARTMENT_ID = (SELECT DEPARTMENT_ID
+						FROM EMPLOYEES
+						WHERE FIRST_NAME = 'Adam'); --> Dynamic
+						
+
+Get employee names working under accounting department.
+
+SELECT * FROM DEPARTMENTS;
+
+SELECT * FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 110;
+
+SELECT * --> output
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = 110; --> input
+
+SELECT *
+FROM EMPLOYEES
+WHERE DEPARTMENT_ID = (SELECT DEPARTMENT_ID FROM DEPARTMENTS
+						WHERE DEPARTMENT_NAME ILIKE 'ACCOUNTING');
+						
+ILIKE
+CASE FUNCTION
+COLLATE 'en-ci-trim'
+
+5. Multiple Row Subquery:
+--------------------------
+Get department details of employees daivid and sarah.
+
+SELECT * 
+FROM EMPLOYEES
+WHERE FIRST_NAME ILIKE ANY ('DAVID', 'SARAH');
+
+SELECT * FROM DEPARTMENTS
+WHERE DEPARTMENT_ID IN (60, 80, 50);
+
+SELECT * FROM DEPARTMENTS
+WHERE DEPARTMENT_ID IN (SELECT DEPARTMENT_ID 
+						FROM EMPLOYEES
+						WHERE FIRST_NAME ILIKE ANY ('DAVID', 'SARAH'));
+						
+SELECT * FROM DEPARTMENTS
+WHERE DEPARTMENT_ID NOT IN (SELECT DEPARTMENT_ID 
+						FROM EMPLOYEES
+						WHERE FIRST_NAME ILIKE ANY ('DAVID', 'SARAH'));
+EXISTS / NOT EXISTS:
+--------------------
+SELECT * FROM DEPARTMENTS
+WHERE EXISTS (SELECT DEPARTMENT_ID 
+						FROM EMPLOYEES
+						WHERE FIRST_NAME ILIKE ANY ('DAVID', 'SARAH'));
+						
+SELECT * FROM DEPARTMENTS
+WHERE NOT EXISTS (SELECT DEPARTMENT_ID 
+						FROM EMPLOYEES
+						WHERE FIRST_NAME ILIKE ANY ('NIZAM'));
+
+6. Correlated Subquery:
+-----------------------
+Display the active departments
+
+SELECT *
+FROM DEPARTMENTS;
+
+SELECT *
+FROM EMPLOYEES;
+
+SELECT *
+FROM DEPARTMENTS
+WHERE DEPARTMENT_ID IN (SELECT DEPARTMENT_ID
+						FROM EMPLOYEES
+						WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID);
+						
+Display the inactive departments.
+
+SELECT *
+FROM DEPARTMENTS
+WHERE DEPARTMENT_ID NOT IN (SELECT DEPARTMENT_ID
+						FROM EMPLOYEES
+						WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID);
+						
+-----------------------------------------------------------------
+Day 19: 03-08-2023:
+--------------------
+
+Lv1:
+----
+Self Intro - 5 mints (3 mints)
+Snowflake
+Data Warehouse
+SQL 
+
+Lv2:
+----
+Self Intro - 5 mints (3 mints)
+Project Explanation
+Snowflake
+Data Warehouse
+SQL 
+
+HR:
+----
+
+Data Warehouse Architecture:
+----------------------------
+Day 20: 04-08-2023:
+--------------------
+Data Warehouse Approaches:
+---------------------------
+
+3. ERD & Dimension Modeling:
+----------------------------
+1. SQL
+2. Snowflake
+3. Data Warehouse
+-------------------------------
+Day 21: 07-08-2023:
+--------------------
+2. Snowflake - Cloud Based Data Warehouse
+
+SQL Commands:
+--------------
+DQL -> Data Query Language
+DDL -> Data Definition Language
+DML -> Data Manipulation Language
+TCL -> Transaction Control Language
+DCL -> Data Control Language 
+
+DQL -> Data Query Language:
+---------------------------
+1. SELECT:
+----------
+SELECT FIRST_NAME, LAST_NAME
+FROM EMPLOYEES;
+
+DDL -> Data Definition Language:
+--------------------------------
+1. CREATE
+2. ALTER
+3. DROP
+4. COMMENT
+5. DESCRIBE | DESC
+6. SHOW
+7. USE
+
+1. CREATE:
+-----------
+It is used to creating the object.
+
+Objects:
+--------
+TABLE
+SCHEMA
+DATABASE
+VIEWS
+STORED PROCEDURE
+UDFs
+
+Syntax:
+-------
+CREATE OBJECT OBJECT_NAME;
+
+Database Creation:
+-------------------
+CREATE DATABASE DB;
+
+Schema Creation:
+-----------------
+CREATE SCHEMA SC;
+
+Fully Qualifier Name:
+---------------------
+Database.Schema.table
+
+Table Create:
+--------------
+CREATE TABLE TABLE_NAME
+(
+	COLUMN_NAME DATA_TYPE,
+	COLUMN_NAME DATA_TYPE,
+	COLUMN_NAME DATA_TYPE,
+	.
+	.
+	1000
+);
+
+
+Object Name --> Naming Convention:
+----------------------------------
+1. Object name should be start with alphabet.
+
+CREATE DATABASE 100; --> ERORR
+CREATE DATABASE SFDB;
+CREATE DATABASE 1DB;--> ERROR
+CREATE DATABASE DB100;
+
+2. Object name should not be contains any spaces.
+
+CREATE DATABASE DB 100; --> Error
+CREATE DATABASE "DB 100"; --> NOT GOOD FOR PRACTICE
+CREATE DATABASE DB_100;
+
+3. Object name should not be contains any special character.
+
+CREATE DATABASE DB*100;--> error
+
+4. Object name should not be repeat again.
+
+
+CREATE TABLE T100
+(
+	ID		NUMBER,
+	NAME	CHARACTER,
+	DOB		DATE
+);
+
+-------------------------------
+Day 22: 08-08-2023:
+--------------------
+DATA:
+-----
+1. STRUCTURED DATA
+2. SEMI-STRUCTURED DATA
+3. UNSTRUCTURED DATA 
+
+1. STRUCTURED DATA:
+-------------------
+number
+character
+date
+
+2. SEMI-STRUCTURED DATA:
+------------------------
+json
+xml
+avro
+parquet
+
+3. UNSTRUCTURED DATA:
+---------------------
+mp3
+mp4
+files
+image
+
+DATA_TYPE:
+----------
+It is allowing the data to the table.
+Snowflake can accept only utf-8 characters.
+
+Types:
+-------
+1. Numeric 
+2. String
+3. Date & Time 
+4. Semi-Structured
+
+1. Numeric:
+------------
+It can accept only for numbers type of data.
+Maximum size - 38
+
+NUMBER / NUMERIC
+NUMBER(SCALE)
+NUMBER(SCALE, PRECISION)
+INTEGER
+
+CREATE TABLE T1
+(
+	AGE NUMBER
+);
+
+CREATE TABLE T2
+(
+	AGE NUMERIC
+);
+
+
+CREATE TABLE T3
+(
+	PH_NUMBER NUMBER(10)
+);
+
+CREATE TABLE T4
+(
+	AMOUNT NUMBER(5,2)
+);
+
+CREATE TABLE T5
+(
+	AMOUNT INTEGER
+);
+
+2. String:
+----------
+It can accept characters, Number and date type of data.
+
+1. Char | Character
+2. String | Text | VARCHAR
+
+1. Char | Character:
+--------------------
+It can accept only for single data.
+
+CREATE OR REPLACE TABLE T1
+(
+	GENDER CHAR
+);
+
+2. String | Text | VARCHAR:
+---------------------------
+Maximum size - 16mb 
+
+CREATE OR REPLACE TABLE T1
+(
+	NAME VARCHAR
+);
+
+3. Date & Time:
+-----------------
+1. DATE
+2. TIME
+3. TIMESTAMP
+
+CREATE OR REPLACE TABLE T1
+(
+	DOB DATE
+);
+
+CREATE OR REPLACE TABLE T1
+(
+	DOB TIME
+);
+
+CREATE OR REPLACE TABLE T1
+(
+	DOB TIMESTAMP
+);
+
+4. Semi-Structured:
+---------------------
+1. VARIANT
+
+CREATE OR REPLACE TABLE T1
+(
+	DOB VARIANT
+);
+
+CREATE OR REPLACE TABLE EMP
+(
+	EMPLOYEE_ID NUMBER,
+	FIRST_NAME VARCHAR,
+	LAST_NAME VARCHAR,
+	EMAIL VARCHAR,
+	PHONE_NUMBER VARCHAR,
+	HIRE_DATE DATE,
+	JOB_ID VARCHAR,
+	SALARY NUMBER,
+	COMMISSION_PCT NUMBER,
+	MANAGER_ID NUMBER,
+	DEPARTMENT_ID NUMBER
+);
+
+2. ALTER:
+---------
+DATABASE RENAME:
+----------------
+ALTER DATABASE SFDBS
+RENAME TO SFDBS2;
+
+SCHEMA RENAME:
+----------------
+ALTER SCHEMA HR
+RENAME TO HR2;
+
+Table Alter:
+------------
+Alter with ADD
+Alter with Modify
+Alter with Rename
+Alter with Drop
+
+Alter with ADD:
+----------------
+Single Column Add:
+--------------------
+ALTER TABLE T1
+ADD NAME VARCHAR;
+
+Multiple Column Add:
+----------------------
+ALTER TABLE T1
+ADD NAME VARCHAR , AGE NUMBER;
+
+Table strcuture:
+----------------
+5. DESCRIBE | DESC:
+--------------------
+DESC TABLE T1;
+
+Alter with Modify:
+--------------------
+It is used to increase the size of data type in existing column.
+
+ALTER TABLE T1
+MODIFY NAME VARCHAR(10);
+
+-------------------------------
+Day 23: 09-08-2023:
+--------------------
+CREATE OR REPLACE TABLE T1
+(
+	A NUMBER,
+	B NUMBER,
+	C NUMBER
+);
+
+Alter with Rename:
+------------------
+ALTER TABLE T1
+RENAME COLUMN A TO X;
+
+Alter with Drop:
+----------------
+Single Column Droping:
+-----------------------
+ALTER TABLE T1
+DROP COLUMN B;
+
+Multiple Column Drop:
+----------------------
+ALTER TABLE T1
+DROP COLUMN A,B;
+
+3. DROP:
+----------
+DROP TABLE T1;
+
+DROP SCHEMA HR;
+
+4. COMMENT:
+-----------
+CREATE OR REPLACE DATABASE DB1
+COMMENT = 'This db for testing purpose';
+
+Existing Database:
+------------------
+COMMENT ON DATABASE ODS IS 'This db for testing purpose';
+
+5. DESCRIBE | DESC:
+-------------------
+DESC TABLE ODS.HR.EMPLOYEES;
+
+6. SHOW:
+--------
+SHOW DATABASES;
+
+SHOW TABLES;
+
+7. USE:
+---------
+It is used to changing the database in current session.
+
+USE DATABASE DB2;
+
+DML -> Data Manipulation Language:
+----------------------------------
+1. INSERT *
+2. UPDATE *
+3. DELETE *
+4. TRUNCATE 
+5. COPY *
+		FORCE
+		PURGE
+		ON_ERROR
+		VALIDATION
+		VALIDATION_MODE
+		VALIDATION_PIPE_LOAD
+6. PUT *
+7. GET *
+8. LIST *
+9. REMOVE *
+
+1. INSERT:
+----------
+FILE INGESTION:
+---------------
+It is loading the data from outside to snowflake warehouse.
+
+Types:
+----------
+1. Limited Data
+2. Bulk Data
+3. Continuous Data
+
+1. Limited Data:
+-----------------
+	Manual Load
+	Snowsight Load (Upload , Copy)
+	SnowSQL Load (put)
+
+CREATE OR REPLACE TABLE T1
+(
+	ID	NUMBER,
+	NAME VARCHAR,
+	PHNO NUMBER(10)
+);
+
+1. Manual Load - INSERT:
+----------------
+Single Row Load
+Multiple Row Load
+Specific Column Load
+
+Single Row Load:
+--------------------
+INSERT INTO T1(ID, NAME, PHNO)
+VALUES(1, 'A', 9876543210);
+
+INSERT INTO T1(ID, NAME, PHNO)
+VALUES(2, 'B', 9876543210);
+
+Multiple Row Load:
+------------------
+INSERT INTO T1(ID, NAME, PHNO)
+VALUES
+(3, 'C', 9876543210),
+(4, 'D', 9876543210),
+(5, 'E', 9876543210);
+
+Specific Column Load:
+---------------------
+INSERT INTO T1(ID)
+VALUES(6);
+
+INSERT INTO T1
+VALUES(5, 'E', 9876543210);
+
+1. Classic Console
+2. Snowsight
+
+-------------------------------
+Day 24: 10-08-2023:
+--------------------
+Snowsight Load:
+---------------
+step 1: source file
+step 2: create table 
+step 3: snowsight load
+
+Home page -> Data -> Select the database, schema, Table -> Load Data -> Browse -> Select the source file -> select the file format 
+
+File Format:
+------------
+It is communicator between source file and snowflake.
+
+Type 			-> File type (CSV / TSV)
+Skip_header 	-> Ignoring the column name
+Field_delimeter -> comma, tab
+
+Error Handling - File ingestion:
+----------------------------------
+1. Do not load any data
+2. Only load good data
+
+CSV -> Comma Seperated Value
+
+Data:
+-----
+Good Data
+Bad Data - Table Function
+
+SELECT * FROM HR.DEPARTMENTS;
+SELECT * FROM HR.REGIONS;
+SELECT * FROM HR.COUNTRIES;
+
+-------------------------------
+Day 25: 11-08-2023:
+--------------------
+Snowsql Load:
+--------------
+
+Google -> snowsql package download -> Select your system OS -> Download the package -> Install the Snowsql -> snowsql -v (version of the snowflake)
+
+
+https://fa43406.ap-southeast-1.snowflakecomputing.com
+
+Connecting the Snowsql:
+-----------------------
+snowsql -a fa43406.ap-southeast-1 -u Nizam
+Password: *****
+
+-a => account name
+-u => user name
+
+IDE Tool:
+---------
+1. GUI -> Graphical User Interface	-> Snowsight
+2. CLI -> Command Line Interface 	-> Snowsql
+
+Snowflake maintains a 2 ways file loading mechanism.
+
+1. D drive 
+2. Stage
+3. Snowflake DB
+
+Stage:
+-------
+Staging area is storing the data into the particular place.
+Stage is one of the object.
+
+Types:
+------
+1. Internal Stage
+2. External Stage
+
+1. Internal Stage:
+------------------
+1. Table Stage
+2. User Stage
+3. Named Stage
+
+3. Named Stage:
+----------------
+It is used to load the data from local drive to snowflake.
+
+CREATE STAGE STG;
+
+6. PUT:
+-------
+It is used to load the data from local drive to stage.
+file keyword should be small letters.
+It is works only on snowsql.
+
+put file://D:\Snowflake\Newfolder\src.csv @stg;
+
+1. Source file
+2. Table
+
+8. LIST:
+----------
+It is used to show what are all the files placed in stage.
+
+LIST @STG;
+
+put file://D:\Snowflake\Newfolder\emp.csv @stg;
+
+5. COPY:
+---------
+INSERT INTO SRC(ID, NAME)
+VALUES(1, 2);
+
+COPY INTO SRC(ID, NAME)
+FROM @stg/src.csv.gz
+FILE_FORMAT = FF;
+
+CREATE FILE FORMAT FF
+TYPE = CSV
+SKIP_HEADER = 1;
+
+-------------------------------
+Day 26: 16-08-2023:
+--------------------
+How to open the source file in direct stage:
+------------------------------------------------
+SELECT $1, $2 FROM @STG/src.csv.gz;
+
+ETL - Extract Transform Load:
+-----------------------------
+EXTRACT -> PUT
+TRANSFORM -> STAGE
+LOAD -> COPY
+
+Extract:
+-------
+PUT file://D:\Snowflake\Newfolder\emp2.csv @stg;
+
+TRANSFORMATIONS:
+-----------------
+First_name & Last_name -> Merge 2 columns 		-> ||
+EMAIL@EMAIL.COM -> Merge email with own text 	-> ||
+PHONE_NUMBER -> Remove the dots					-> Replace 
+Hire_date -> Indian Date Format					-> TO_CHAR -> X
+Salary -> Salary with $ symbol					-> ||
+COMMISSION_PCT -> 0 instead of Null				-> NVL/COALESCE
+MANAGER_ID -> 0 instead of null					-> NVL/COALESCE
+DEPARTMENT_ID -> 0 instead of null				-> NVL/COALESCE
+
+SELECT 
+	$1,
+	$2 || ' ' || $3,
+	$4||'@EMAIL.COM',
+	REPLACE($5,'.',''),
+	$6,
+	$7,
+	'$'||$8,
+	COALESCE($9,'0'),
+	NVL($10,'0'),
+	NVL($11,'0')
+FROM
+	@stg/emp2.csv.gz;
+	
+LOAD:
+-----
+CREATE OR REPLACE TABLE EMP
+(
+    EMMPLOYEE_ID NUMBER,
+    NAME VARCHAR,
+    EMAIL VARCHAR,
+    PHONE_NUMBER NUMBER,
+    HIRE_DATE VARCHAR,
+    JOB_ID VARCHAR,
+    SALARY VARCHAR,
+    COMMISSION_PCT NUMBER,
+    MANAGER_ID NUMBER,
+    DEPARTMENT_ID NUMBER
+);
+
+COPY INTO EMP
+FROM (
+	SELECT 
+		$1,
+		$2 || ' ' || $3,
+		$4||'@EMAIL.COM',
+		REPLACE($5,'.',''),
+		$6,
+		$7,
+		'$'||$8,
+		COALESCE($9,'0'),
+		NVL($10,'0'),
+		NVL($11,'0')
+	FROM
+		@stg/emp2.csv.gz
+)
+FILE_FORMAT = CSV;
+
+-------------------------------
+Day 27: 17-08-2023:
+--------------------
+
+ELT - EXTRACT LOAD TRANSFORM:
+-----------------------------
+
+1. src file
+2. snowflake internal stage
+3. internal stage - snowflake stg table
+
+CREATE OR REPLACE STAGE STG;
+
+ls @stg;
+
+CREATE OR REPLACE TABLE EMP_STG
+(
+    EMMPLOYEE_ID NUMBER,
+    FIRST_NAME VARCHAR,
+    LAST_NAME VARCHAR,
+    EMAIL VARCHAR,
+    PHONE_NUMBER VARCHAR,
+    HIRE_DATE DATE,
+    JOB_ID VARCHAR,
+    SALARY VARCHAR,
+    COMMISSION_PCT NUMBER,
+    MANAGER_ID NUMBER,
+    DEPARTMENT_ID NUMBER
+);
+
+
+
+COPY INTO EMP_STG
+FROM @stg/emp2.csv.gz
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1 FIELD_DELIMITER = ',' RECORD_DELIMITER = '\n');
+
+CREATE OR REPLACE FILE FORMAT CSV
+TYPE = CSV
+SKIP_HEADER = 1
+FIELD_DELIMITER = ','
+RECORD_DELIMITER = '\n';
+
+SELECT * FROM EMP_STG;
+
+
+CREATE OR REPLACE TABLE EMP_TGT
+(
+    EMMPLOYEE_ID NUMBER,
+    NAME VARCHAR,
+    EMAIL VARCHAR,
+    PHONE_NUMBER NUMBER,
+    HIRE_DATE DATE,
+    JOB_ID VARCHAR,
+    SALARY VARCHAR,
+    COMMISSION_PCT NUMBER,
+    MANAGER_ID NUMBER,
+    DEPARTMENT_ID NUMBER
+);
+SELECT * FROM EMP_TGT;
+
+
+INSERT INTO EMP_TGT
+SELECT
+    EMMPLOYEE_ID,
+    FIRST_NAME || ' ' || LAST_NAME AS NAME,
+    EMAIL ||'@EMAIL.COM' AS EMAIL,
+    REPLACE(PHONE_NUMBER,'.','') AS PHONE_NUMBER,
+    TO_CHAR(HIRE_DATE,'DD/MM/YYYY') AS HIRE_DATE,
+    JOB_ID,
+    '$'||SALARY AS SALARY,
+    NVL(COMMISSION_PCT,0) AS COMMISSION_PCT,
+    COALESCE(MANAGER_ID,0) AS MANAGER_ID,
+    COALESCE(DEPARTMENT_ID,0) AS DEPARTMENT_ID
+FROM EMP_STG;
+
+SELECT * FROM EMP_TGT;
+
+CREATE OR REPLACE TABLE EMP_TGT
+(
+    EMMPLOYEE_ID NUMBER,
+    NAME VARCHAR,
+    EMAIL VARCHAR,
+    PHONE_NUMBER NUMBER,
+    HIRE_DATE VARCHAR,
+    JOB_ID VARCHAR,
+    SALARY VARCHAR,
+    COMMISSION_PCT NUMBER,
+    MANAGER_ID NUMBER,
+    DEPARTMENT_ID NUMBER
+);
+
+1. Table Stage:
+---------------
+It is created by snowflake whenever we create a table.
+
+2. User Stage:
+--------------
+It is created by snowflake whenever we opened new worksheet.
+
+Force:
+------
+We can load the same file again and again to the table.
+
+copy into emp_stg
+from @stg/emp2.csv.gz
+file_format = (type = csv skip_header = 1)
+force = true;
+
+9. REMOVE:
+----------
+It is used to remove the data from stage.
+
+remove @stg/emp2.csv.gz;
+
+Purge:
+------
+It is used to remove the file from stage after loading into table.
+
+copy into emp_stg
+from @stg/emp2.csv.gz
+file_format = (type = csv skip_header = 1)
+force = true
+purge = true;                             
+
+7. GET:
+-------
+It is used to download the file from internal stage to local drive.
+It is works only snowsql.
+We can download only from internal stage data.
+
+put file://D:\Snowflake\Newfolder\emp2.csv @stg;
+
+get @stg/emp2.csv.gz file://D:\Snowflake\Newfolder\;
+
+-------------------------------
+Day 28: 18-08-2023:
+--------------------
+2. Bulk Data:
+-------------
+
+Cloud Load using AWS:
+---------------------
+
+Services:
+---------
+S3	-> Store
+IAM -> Permission provider
+
+AWS Load:
+----------
+Step 1:
+-------
+Upload the file into S3:
+-------------------------
+S3 -> Create Bucket -> Open the bucket -> Create Folder -> Open Folder -> Upload -> Add Files -> Select your File -> Upload
+
+ETL Developers Team
+
+Step 2:
+-------
+Link the snowflake and AWS account using Storage Integration object.
+
+Storage Integration Creation:
+-----------------------------
+ARN - Amazon Resource Name
+
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R1'
+STORAGE_ALLOWED_LOCATIONS = ('s3://18aug2023/csv/');
+
+
+IAM -> ROLES -> CREATE ROLE -> AWS ACCOUNT -> EXTERNAL ID: 0000 -> AMAZONS3FULLACCESS -> ROLE NAME -> CREATE
+
+DESC STORAGE INTEGRATION INTG;
+
+
+STORAGE_AWS_IAM_USER_ARN & STORAGE_AWS_EXTERNAL_ID copy the id and paste the IAM service.
+
+IAM -> ROLES -> OPEN YOUR ROLE -> TRUST RELATIONSHIPS -> EDIT TRUST POLICY -> Paste the snowflake ids -> Update policy
+
+Admin Team
+
+Step 3:
+-------
+External Stage creation:
+--------------------------
+CREATE OR REPLACE STAGE EXSTG
+URL = ('s3://18aug2023/csv/')
+STORAGE_INTEGRATION = INTG;
+
+list @exstg;
+
+select $1, $2 from @EXSTG/src.csv;
+
+Admin Team
+
+Step 4:
+--------
+Table creation:
+----------------
+CREATE OR REPLACE TABLE T1(ID NUMBER, NAME VARCHAR);
+
+COPY INTO T1
+FROM @EXSTG/src.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1);
+
+SELECT * FROM T1;
+
+Our Work
+-----------------------------------
+Day 29: 19-08-2023:
+--------------------
+Handling the bad data:
+----------------------
+1. Validation_Mode
+2. Validate
+3. Validation_pipe_load
+
+AWS Load:
+----------
+Step 1:
+-------
+Upload the file into S3:
+-------------------------
+S3 -> Create Bucket -> Open the bucket -> Create Folder -> Open Folder -> Upload -> Add Files -> Select your File -> Upload
+
+Step 2:
+-------
+Link the snowflake and AWS account using Storage Integration object.
+
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R1'
+STORAGE_ALLOWED_LOCATIONS = ('s3://19aug2023/csv/');
+
+IAM -> ROLES -> CREATE ROLE -> AWS ACCOUNT -> EXTERNAL ID: 0000 -> AMAZONS3FULLACCESS -> ROLE NAME -> CREATE
+
+STORAGE_AWS_IAM_USER_ARN & STORAGE_AWS_EXTERNAL_ID copy the id and paste the IAM service.
+
+DESC STORAGE INTEGRATION INTG;
+
+IAM -> ROLES -> OPEN YOUR ROLE -> TRUST RELATIONSHIPS -> EDIT TRUST POLICY -> Paste the snowflake ids -> Update policy
+
+Step 3:
+-------
+External Stage creation:
+--------------------------
+CREATE OR REPLACE STAGE STG
+STORAGE_INTEGRATION = INTG
+URL = ('s3://19aug2023/csv/');
+
+LS @STG;
+
+SELECT $1, $2 FROM @STG/bad_src_file.csv;
+
+Step 4:
+--------
+Table creation:
+----------------
+CREATE OR REPLACE TABLE T1
+(
+	ID INT,
+	NAME VARCHAR
+);
+
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1);
+
+What should happen if an error is encountered while loading a file?
+
+1. Do not load any data (on_error = abort_statement)
+2. Only load valid data from the file (on_error = continue)
+
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = ABORT_STATEMENT;
+
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE
+FORCE = TRUE;
+
+VALIDATION_MODE:
+----------------
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE
+VALIDATION_MODE = RETURN_ALL_ERRORS;
+
+
+Error Table Creation:
+---------------------
+CREATE OR REPLACE TABLE ERROR_TAB
+(
+	ERROR	VARCHAR,
+	FILE 	VARCHAR,
+	LINE	INT,
+	REJECTED_RECORD VARCHAR
+);
+
+SELECT * FROM T1;
+
+SELECT * FROM T2;
+
+INSERT INTO T2
+VALUES(1, 'A'),(2, 'B');
+
+INSERT INTO T2
+SELECT * FROM T1;
+
+
+SELECT * FROM TABLE(VALIDATE('T1',JOB_ID => '01ae673d-3200-d8dc-0005-6ce60007618a'));
+
+01ae6736-3200-d8aa-0005-6ce600077106
+
+INSERT INTO ERROR_TAB
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE
+VALIDATION_MODE = RETURN_ALL_ERRORS; --> ERROR
+
+-----------------------------------
+Day 30: 20-08-2023:
+--------------------
+Resume Preparation
+
+-----------------------------------
+Day 31: 21-08-2023:
+--------------------
+Validation, SnowPipe:
+---------------------
+1. Validation_Mode
+2. Validation
+3. Validation_Pipe_Load
+
+Step 1:
+-------
+Upload the file into S3:
+-------------------------
+S3 -> Create Bucket -> Open the bucket -> Create Folder -> Open Folder -> Upload -> Add Files -> Select your File -> Upload
+
+Step 2:
+-------
+Link the snowflake and AWS account using Storage Integration object.
+
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R2'
+STORAGE_ALLOWED_LOCATIONS = ('s3://21aug2023/')
+;
+
+IAM -> ROLES -> CREATE ROLE -> AWS ACCOUNT -> EXTERNAL ID: 0000 -> AMAZONS3FULLACCESS -> ROLE NAME -> CREATE
+
+DESC STORAGE INTEGRATION INTG;
+
+STORAGE_AWS_IAM_USER_ARN & STORAGE_AWS_EXTERNAL_ID copy the id and paste the IAM service.
+
+IAM -> ROLES -> OPEN YOUR ROLE -> TRUST RELATIONSHIPS -> EDIT TRUST POLICY -> Paste the snowflake ids -> Update policy
+
+Step 3:
+-------
+External Stage creation:
+--------------------------
+CREATE OR REPLACE STAGE STG
+STORAGE_INTEGRATION = INTG
+URL = ('s3://21aug2023/');
+
+LS @STG;
+
+SELECT $1, $2 FROM @STG/bad_src_file.csv;
+
+Step 4:
+--------
+Table creation:
+----------------
+CREATE OR REPLACE TABLE T1
+(
+	ID INT,
+	NAME VARCHAR
+);
+
+Displaying the Error Data:
+------------------------------
+1. VALIDATION_MODE:
+--------------------
+COPY INTO T1
+FROM @STG/bad_src_file.csv
+ON_ERROR = CONTINUE
+VALIDATION_MODE = RETURN_ALL_ERRORS;
+
+2. Validation:
+--------------
+SELECT * FROM TABLE(VALIDATE(TABLE_NAME, COPY QUERY ID));
+
+SELECT * FROM TABLE(VALIDATE(T1, JOB_ID => '01ae72d9-3200-d90a-0005-6ce6000831fe'));
+
+3. Continuous Data - SnowPipe:
+--------------------------------
+Step 1:
+-------
+Upload the file into S3:
+-------------------------
+S3 -> Create Bucket -> Open the bucket -> Create Folder -> Open Folder -> Upload -> Add Files -> Select your File -> Upload
+
+Step 2:
+-------
+Link the snowflake and AWS account using Storage Integration object.
+
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R2'
+STORAGE_ALLOWED_LOCATIONS = ('s3://21aug2023/CSV/')
+;
+
+IAM -> ROLES -> CREATE ROLE -> AWS ACCOUNT -> EXTERNAL ID: 0000 -> AMAZONS3FULLACCESS -> ROLE NAME -> CREATE
+
+DESC STORAGE INTEGRATION INTG;
+
+STORAGE_AWS_IAM_USER_ARN & STORAGE_AWS_EXTERNAL_ID copy the id and paste the IAM service.
+
+IAM -> ROLES -> OPEN YOUR ROLE -> TRUST RELATIONSHIPS -> EDIT TRUST POLICY -> Paste the snowflake ids -> Update policy
+
+Step 3:
+-------
+External Stage creation:
+--------------------------
+CREATE OR REPLACE STAGE STG
+STORAGE_INTEGRATION = INTG
+URL = ('s3://21aug2023/CSV');
+
+LS @STG;
+
+
+Step 4:
+--------
+Table creation:
+----------------
+CREATE OR REPLACE TABLE T1
+(
+	ID INT,
+	NAME VARCHAR
+);
+
+Snowpipe Creation:
+-------------------
+CREATE OR REPLACE PIPE PIPE1
+AUTO_INGEST = TRUE
+AS
+COPY INTO T1
+FROM @STG
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+FORCE = TRUE
+ON_ERROR = CONTINUE;
+-----------------------------------
+Day 32: 22-08-2023:
+--------------------
+Step 1:
+-------
+Upload the file into S3:
+-------------------------
+S3 -> Create Bucket -> Open the bucket -> Create Folder -> Open Folder -> Upload -> Add Files -> Select your File -> Upload
+
+Step 2:
+-------
+Link the snowflake and AWS account using Storage Integration object.
+
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_ALLOWED_LOCATIONS = ('s3://22aug2023/csv/')
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R4'
+;
+
+IAM -> ROLES -> CREATE ROLE -> AWS ACCOUNT -> EXTERNAL ID: 0000 -> AMAZONS3FULLACCESS -> ROLE NAME -> CREATE
+
+DESC STORAGE INTEGRATION INTG;
+
+STORAGE_AWS_IAM_USER_ARN & STORAGE_AWS_EXTERNAL_ID copy the id and paste the IAM service.
+
+IAM -> ROLES -> OPEN YOUR ROLE -> TRUST RELATIONSHIPS -> EDIT TRUST POLICY -> Paste the snowflake ids -> Update policy
+
+Step 3:
+-------
+External Stage creation:
+--------------------------
+CREATE OR REPLACE STAGE STG
+STORAGE_INTEGRATION = INTG
+URL = ('s3://22aug2023/csv/');
+
+LIST / LS 
+
+SELECT $1, $2 FROM @STG/src.csv;
+
+CREATE OR REPLACE TABLE T1
+(
+	ID NUMBER,
+	NAME VARCHAR
+);
+
+STEP 4:
+--------
+Load the data from Stage to Table.
+
+COPY INTO T1
+FROM @STG/src.csv
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE;
+
+TRUNCATE:
+---------
+It is used to remove the all the data from table.
+
+TRUNCATE TABLE T1;
+
+Create the SnowPipe object / Serverless Activity:
+--------------------------------------------------
+CREATE OR REPLACE PIPE PIPE1
+AUTO_INGEST = TRUE
+AS
+COPY INTO T1
+FROM @STG
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE;
+
+Once after we create the snowpipe object then we should link the snowpipe object id into AWS S3 bucket.
+
+DESC PIPE PIPE1;
+
+S3 -> Open your Bucket -> Properties -> Event notifications -> Create Event notifications -> Select the All Object Event -> SQS queue -> Enter SQS queue ARN -> Paste the Channel Notifcation id.
+
+Displaying the Error Data:
+------------------------------
+3. Validation_Pipe_Load:
+-------------------------
+SELECT * FROM TABLE(
+	VALIDATE_PIPE_LOAD(
+		PIPE_NAME => 'PIPE1',
+		START_TIME => DATEADD(HOUR,-1,CURRENT_TIMESTAMP())
+	)
+);
+
+
+DATEADD:
+--------
+SELECT CURRENT_TIMESTAMP();
+
+SELECT 
+	CURRENT_TIMESTAMP(), 
+	DATEADD(HOUR,-1,CURRENT_TIMESTAMP());
+	
+-----------------------------------
+Day 33: 23-08-2023:
+--------------------
+CREATE OR REPLACE TABLE T1
+(
+	ID NUMBER,
+	NAME VARCHAR
+);
+
+ALTER TABLE T100
+RENAME TO T1;
+
+ALTER TABLE T100
+RENAME COLUMN I TO ID;
+
+SELECT * FROM T1;
+
+INSERT INTO T1(ID, NAME)
+VALUES(1, 'A'),(2,'B'),(3,'C');
+
+2. UPDATE:
+----------
+1. All Rows Update
+2. Specific Row Update
+3. Update with Another Table
+
+1. All Rows Update:
+----------------------
+UPDATE T1
+SET NAME = 'X';
+
+2. Specific Row Update:
+-----------------------
+UPDATE T1
+SET NAME = 'A'
+WHERE ID = 1;
+
+SELECT * FROM T1
+WHERE ID = 1;
+
+UPDATE T1
+SET NAME = 'B'
+WHERE ID = 2;
+
+SELECT * FROM T1
+WHERE ID IN(1,3);
+
+UPDATE T1
+SET NAME = 'Z'
+WHERE ID IN(1,3);
+
+3. Update with Another Table:
+-----------------------------
+CREATE OR REPLACE TABLE SRC
+(
+	ID	NUMBER,
+	NAME VARCHAR
+);
+
+CREATE OR REPLACE TABLE TGT
+(
+	ID	NUMBER,
+	NAME VARCHAR
+);
+
+INSERT INTO SRC
+VALUES(1, 'DAIRY MILK'),(2, 'CHOCOLATE');
+
+INSERT INTO TGT
+VALUES(1, 'D'),(2,'C');
+
+UPDATE TGT AS T
+SET T.NAME = S.NAME
+FROM SRC AS S
+WHERE T.ID = S.ID;
+
+UPDATE SRC
+SET NAME = 'MILKY BAR'
+WHERE ID = 1;
+
+UPDATE SRC 
+SET NAME = '5 STAR'
+WHERE ID = 2;
+
+UPDATE TGT
+SET TGT.NAME = SRC.NAME
+FROM SRC
+WHERE TGT.ID = SRC.ID;
+
+3. DELETE:
+----------
+1. All Rows Delete
+2. Single Row Delete
+3. Multiple Row Delete
+4. Duplicate Row Delete
+
+1. All Rows Delete:
+-------------------
+SELECT * FROM TGT;
+
+DELETE FROM TGT;
+
+2. Single Row Delete:
+----------------------
+SELECT * FROM SRC
+WHERE ID = 2;
+
+DELETE FROM SRC
+WHERE ID = 2;
+
+3. Multiple Rows Delete:
+------------------------
+DELETE FROM T1
+WHERE ID IN(1,3);
+
+4. Duplicate Row Delete:
+------------------------
+
+CREATE OR REPLACE TABLE T1
+(
+	ID INT,
+	NAME VARCHAR
+);
+
+INSERT INTO T1
+VALUES(1, 'RAJINI'),(2, 'RAJINI'),(3, 'KAMAL'),(4,'VIJAY'),(5,'VIJAY');
+
+SELECT DISTINCT NAME
+FROM T1;
+
+SELECT NAME
+FROM T1
+GROUP BY NAME;
+
+Identify the duplicate data:
+----------------------------
+1. Aggregate Function:
+-------------------
+SELECT NAME, COUNT(1)
+FROM T1
+GROUP BY NAME
+HAVING COUNT(1) > 1;
+
+2. Analytical function with Qualify:
+-----------------------------------
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME DESC) AS RN
+FROM T1
+QUALIFY RNK > 1;
+
+3. Common Table Expression:
+-------------------------
+WITH CTE
+AS
+(
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME DESC) AS RNK
+FROM T1
+)
+SELECT * FROM CTE
+WHERE RNK > 1;
+
+4. Inline View (Subquery):
+-----------------------
+SELECT * FROM (
+    SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME DESC) AS RNK
+    FROM T1
+)
+WHERE RNK > 1;
+
+-----------------------------------
+Day 34: 24-08-2023:
+--------------------
+4. Duplicate Row Delete:
+-------------------------
+1. Aggregate Function
+2. Analytical function with Qualify -- NO DELETE
+3. Common Table Expression
+4. Inline View (Subquery)
+
+1. Aggregate Function:
+----------------------
+SELECT NAME, COUNT(*), MAX(ID)
+FROM T1
+GROUP BY NAME
+HAVING COUNT(*) > 1;
+
+DELETE FROM T1 
+WHERE ID IN(SELECT MAX(ID)
+			FROM T1	
+			GROUP BY NAME
+			HAVING COUNT(*) > 1 ); 
+
+2. Analytical function with Qualify:
+------------------------------------
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+QUALIFY RN > 1;
+
+
+DELETE FROM T1
+WHERE ID IN
+(
+	SELECT ID
+	FROM T1
+	QUALIFY ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) > 1
+);
+
+SELECT * FROM T1
+WHERE ID IN (2 'RAJINI',5 'VIJAY');
+
+3. Common Table Expression:
+----------------------------
+WITH TMP
+AS
+(
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+SELECT * FROM TMP
+WHERE RN > 1;
+
+
+DELETE FROM T1
+WHERE ID IN (
+SELECT ID FROM (
+WITH TMP
+AS
+(
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+SELECT * FROM TMP
+WHERE RN > 1
+)
+);
+
+
+WITH CTE
+AS
+(
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+SELECT * FROM CTE
+WHERE RN > 1;
+
+DELETE FROM T1
+WHERE ID IN 
+(
+WITH CTE
+AS
+(
+SELECT ID, NAME, ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+SELECT ID FROM CTE
+WHERE RN > 1
+);
+
+4. Inline View (Subquery):
+--------------------------
+SELECT 
+	ID, 
+	NAME, 
+	ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1;
+
+
+SELECT * FROM 
+(
+SELECT 
+	ID, 
+	NAME, 
+	ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+WHERE RN > 1;
+
+DELETE FROM T1
+WHERE ID IN 
+(
+SELECT ID FROM 
+(
+SELECT 
+	ID, 
+	NAME, 
+	ROW_NUMBER() OVER(PARTITION BY NAME ORDER BY NAME) AS RN
+FROM T1
+)
+WHERE RN > 1
+);
+
+2nd Scenario:
+-------------
+SELECT * FROM T1;
+
+1
+1
+3
+4
+4
+
+SELECT DISTINCT * FROM T1;
+
+CREATE OR REPLACE TABLE T1_BKP
+AS
+SELECT DISTINCT * FROM T1;
+
+SELECT * FROM T1_BKP;
+
+1
+3
+4
+
+DELETE FROM T1;
+
+INSERT INTO T1
+SELECT * FROM T1_BKP;
+
+SELECT * FROM T1;
+
+1
+3
+4
+
+-----------------------------------
+Day 35: 25-08-2023:
+--------------------
+4. TRUNCATE:
+------------
+It is used to remove the data from table.
+
+TRUNCATE T1; --> SNOWFLAKE
+
+TRUNCATE TABLE T1; --> ORACLE
+
+DELETE:
+---------
+1. For Delete we can do for partial delete.
+
+DELETE FROM T1
+WHERE ID = 1;--> SUCCESSFULLY EXECUTION
+
+2. If we are using DELETE command we can not load the same file again and again.
+
+3. If we are using DELETE command we can rollback data. --> snowflake does not support.
+
+
+TRUNCATE:
+----------
+1. For Truncate we can not do partial delete.
+
+TRUNCATE TABLE T1
+WHERE ID = 1;--> ERROR
+
+2. If we are using TRUNCATE command we can load the same file again and again.
+
+3. If we are using TRUNCATE command we can not rollback data.--> snowflake does not support.
+
+
+How to parameterize the Snowsql login:
+----------------------------------------
+C:\Users\User_Name\.snowsql\config
+
+Standard Login:
+---------------
+snowsql -a <account_name> -u <user_name>
+Password:
+
+Parameterized Login:
+--------------------
+snowsql -c dev
+
+\ -> Local Drive 
+/ -> ftp Server
+
+
+TCL -> Transaction Control Language:
+------------------------------------
+TRANSACTION:
+------------
+Transaction means DDL and DML.
+
+session = worksheet
+
+Types:
+-------
+1. Permanent Transaction - DDL
+2. Temporary Transaction - DML
+
+1. COMMIT
+2. ROLLBACK
+3. BEGIN TRANSACTION
+
+1. COMMIT:
+----------
+Commit is used to save the data from temporary transaction to Permanent transaction.
+
+COMMIT;
+
+2. ROLLBACK:
+-------------
+ROLLBACK is used to get back the data if it is temporary transaction.
+
+ROLLBACK;
+
+SHOW PARAMETERS;
+
+ALTER SESSION
+SET AUTOCOMMIT = FALSE;
+
+-----------------------------------
+Day 36: 26-08-2023:
+--------------------
+3. BEGIN TRANSACTION:
+-----------------------
+It is maintains data in temporary eventhough the worksheet is autocommit.
+
+BEGIN TRANSACTION;
+
+INSERT INTO T1 VALUES(3);
+
+COMMIT;
+
+Constraints:
+------------
+It is a set of rules for table data.
+
+ID:
+----
+NULL		-	Not Accepted
+DUPLICATE	-	Not Accepted
+
+NAME:
+------
+NULL		-	Not Accepted
+DUPLICATE	-	Accepted
+
+PHONE_NUMBER:
+-------------
+NULL		-	Accepted
+DUPLICATE	-	Not Accepted
+
+
+CREATE TABLE T1(
+	ID				INT,
+	NAME			VARCHAR(10),
+	PHONE_NUMBER	NUMBER
+);
+
+INSERT INTO T1
+VALUES(100,	'ALEX',	9876543210);
+
+INSERT INTO T1
+VALUES(100,	'DAVID',	9876543211);
+
+INSERT INTO T1
+VALUES(NULL,	'STEVE',	9876543213);
+
+INSERT INTO T1
+VALUES(101,	NULL,	9876543212);
+
+select * from t1;
+
+CONSTRAINTS:
+------------
+PRIMARY KEY
+NOT NULL
+UNIQUE
+FOREIGN KEY
+
+PRIMARY KEY:
+-------------
+DUPLICATE 	-	Not Accepted
+NULL		-	Not Accepted
+
+EXAMPLE: ID
+
+NOT NULL:
+-----------
+DUPLICATE 	-	Accepted
+NULL		-	Not Accepted
+
+UNIQUE:
+---------
+DUPLICATE 	-	Not Accepted
+NULL		-	Accepted
+
+CREATE TABLE T2(
+	ID		INT			PRIMARY KEY,
+	NAME	VARCHAR(10)	NOT NULL,
+	PH_NO	NUMBER		UNIQUE
+);
+
+
+INSERT INTO T2
+VALUES(100,	'ALEX',	9876543210);--LOADED
+
+INSERT INTO T2
+VALUES(100,	'DAVID',	9876543211);--NOT LOADED(ID-DUPLICATE)
+
+INSERT INTO T2
+VALUES(NULL,	'STEVE',	9876543213);--NOT LOADED(ID-NULL)
+
+INSERT INTO T2
+VALUES(101,	NULL,	9876543212);--NOT LOADED(NAME-NULL)
+
+INSERT INTO T2
+VALUES(102,	'ALEX', 9876543214);--LOADED
+
+INSERT INTO T2
+VALUES(103,	'LEX', 9876543210);--NOT LOADED(PHONE_NUMBER-DUPLICATE)
+
+INSERT INTO T2
+VALUES(104,	'DAVID'	,NULL);--LOADED
+
+Snowflake:
+----------
+PRIMARY KEY:
+-------------
+DUPLICATE 	-	Accepted
+NULL		-	Not Accepted
+
+EXAMPLE: ID
+
+NOT NULL:
+-----------
+DUPLICATE 	-	Accepted
+NULL		-	Not Accepted
+
+UNIQUE:
+---------
+DUPLICATE 	-	Accepted
+NULL		-	Accepted
+
+DBMS - DATABASE MANAGEMENT SYSTEM
+RDBMS - RELATIONAL DATABASE MANAGEMENT SYSTEM
+
+FOREIGN KEY:
+------------
+It make relationship between two tables.
+
+CREATE TABLE LOC
+(
+	ZIP INT PRIMARY KEY,
+	LOC VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE EMP
+(
+	ID	INT PRIMARY KEY,
+	NAME VARCHAR(10) NOT NULL,
+	ZIP INT,
+
+    CONSTRAINTS C1 FOREIGN KEY (ZIP) REFERENCES LOC(ZIP)
+);
+
+-----------------------------------
+Day 37: 28-08-2023:
+--------------------
+Snowflake Architecture:
+-----------------------
+
+Warehouse:
+-----------
+1. Virtual Warehouse (C Drive)
+2. Data Warehouse (D Drive)
+
+
+C - Drive (Software Processing, Data Store)
+D - Drive (Data Store)
+
+-----------------------------------
+Day 38: 29-08-2023:
+--------------------
+Snowflake Architecture Cont.:
+-----------------------------
+
+
+-----------------------------------
+Day 39: 30-08-2023:
+--------------------
+Cache:
+--------
+
+
+Micro-Partitions:
+-----------------
+CREATE OR REPLACE TABLE LOG(
+TYPE    VARCHAR,
+NAME     VARCHAR,
+COUNTRY VARCHAR,
+DATE    DATE
+) cluster by(TYPE, NAME, COUNTRY, DATE);
+
+-----------------------------------
+Day 40: 31-08-2023:
+--------------------
+Time Travel:
+-------------
+Snowflake time travel enables accessing the historical data. Which means deleted data or changed data.
+Restore the data and database object.
+We can backup deleted data.
+
+Current Storage
+
+Time Travel
+
+Fail Safe
+
+CREATE OR REPLACE TABLE T1
+(
+	ID	INT,
+	NAME VARCHAR
+);
+
+CREATE OR REPLACE TABLE T2
+(
+	ID	INT,
+	NAME VARCHAR
+) 
+DATA_RETENTION_TIME_IN_DAYS = 90;
+
+
+INSERT:
+---------
+INSERT INTO T1 VALUES(1,'A'),(2,'B'),(3,'C');
+
+UPDATE:
+--------
+UPDATE T1
+SET ID = 300
+WHERE ID = 3;
+
+DELETE:
+-------
+DELETE FROM T1
+WHERE ID = 300;
+
+SELECT CURRENT_TIMESTAMP();
+
+SELECT * FROM T1;--ROWS:0 | 2023-08-30 21:12:13.247 -0700
+
+SELECT * FROM T1;--ROWS:3 | 2023-08-30 21:12:38.709 -0700
+
+SELECT * FROM T1;--ROWS:3 (AFTER UPDATE) | 2023-08-30 21:13:27.374 -0700
+01aeaafd-3200-dbe8-0005-e94600019136
+
+SELECT * FROM T1;--ROWS:2 (AFTER DELETE) | 2023-08-30 21:14:20.124 -0700 
+01aeaafe-3200-dbe8-0005-e94600019152
+
+TIME TRAVEL:
+-------------
+CLAUSES:
+---------
+1. TIMESTAMP
+2. OFFSET
+3. STATEMENT
+
+AT
+BEFORE
+
+1. TIMESTAMP:
+--------------
+SELECT * FROM T1
+AT(TIMESTAMP => CAST('2023-08-30 21:12:13.247 -0700' AS TIMESTAMP_TZ));
+
+SELECT * FROM T1
+AT(TIMESTAMP => '2023-08-30 21:12:38.709 -0700'::TIMESTAMP_TZ);
+
+SELECT * FROM T1
+AT(TIMESTAMP => CAST('2023-08-30 21:13:27.374 -0700' AS TIMESTAMP_TZ));
+
+SELECT * FROM T1
+AT(TIMESTAMP => CAST('2023-08-30 21:14:20.124 -0700' AS TIMESTAMP_TZ));
+
+SELECT * FROM T1
+BEFORE(TIMESTAMP => CAST('2023-08-30 21:14:20.124 -0700' AS TIMESTAMP_TZ));
+
+Data Type Conversion:
+----------------------
+CAST
+::
+
+2. OFFSET:
+----------
+SELECT * FROM T1
+AT(OFFSET => -60*17);--3
+
+SELECT * FROM T1
+AT(OFFSET => -60*19);--0
+
+3. STATEMENT:
+-------------
+SELECT * FROM T1
+AT(STATEMENT => '01aeaafd-3200-dbe8-0005-e94600019136');
+
+SELECT * FROM T1
+BEFORE(STATEMENT => '01aeaafe-3200-dbe8-0005-e94600019152');
+
+Data Restore:
+--------------
+CREATE OR REPLACE TABLE T1_BKP
+AS
+(
+   SELECT * FROM T1
+    AT(TIMESTAMP => CAST('2023-08-30 21:13:27.374 -0700' AS TIMESTAMP_TZ)) 
+);
+
+SELECT * FROM T1_BKP;
+
+TRUNCATE T1;
+
+INSERT INTO T1
+SELECT * FROM T1_BKP;
+
+Object Restore:
+----------------
+UNDROP TABLE T1_BKP;
+
+
+How to undrop the recreated same table:
+----------------------------------------
+CREATE OR REPLACE TABLE T1
+(
+	ID	INT
+);
+
+ALTER TABLE T1
+RENAME TO T100;
+
+UNDROP TABLE T1;
+
+SELECT * FROM T1;
+
+Fail Safe:
+----------
+Fail-Safe provides 7 days of time travel period.
+We dont have the access for it.
+Which is handled by direct snowflake team.
+
+
+UPDATE T1
+SET NAME = 'X';
+
+-----------------------------------
+Day 41: 01-09-2023:
+--------------------
+Types Tables:
+-------------
+1. Permanent Table
+2. Transient Table
+3. Temporary Table
+4. External Table
+5. Dynamic Table
+
+1. Permanent Table:
+-------------------
+CREATE OR REPLACE TABLE T1(A INT);
+
+INSERT INTO T1 VALUES(1);
+
+Here data has been stored permanently.
+
+CREATE OR REPLACE TABLE T1(A INT)
+DATA_RETENTION_TIME_IN_DAYS = 90;
+
+90 days of time travel period available only Permanent table.
+
+select * from t1
+at(timestamp => ' 2023-08-31 21:02:30.176 -0700'::timestamp_tz);
+
+Fail safe period available only on Permanent Table.
+
+2. Transient Table:
+-------------------
+CREATE OR REPLACE TRANSIENT TABLE T2(A INT);
+
+INSERT INTO T2 VALUES(1);
+
+Here data has been stored permanently.
+
+CREATE OR REPLACE TRANSIENT TABLE T2(A INT)
+DATA_RETENTION_TIME_IN_DAYS = 1;
+
+1 day of time travel period available only Transient table.
+
+select * from t2
+at(timestamp => ' 2023-08-31 21:02:30.176 -0700'::timestamp_tz);
+
+Fail safe period not available only on Transient Table.
+
+
+3. Temporary Table:
+-------------------
+CREATE OR REPLACE TEMPORARY TABLE T3(A INT);
+
+INSERT INTO T3 VALUES(1);
+
+SELECT * FROM DB.INFORMATION_SCHEMA.TABLES;
+
+Temporary table exist only within a session.
+
+CREATE OR REPLACE TEMPORARY TABLE T3(A INT)
+DATA_RETENTION_TIME_IN_DAYS = 1;
+
+1 day of time travel period available only temporary table.
+
+select * from t3
+at(timestamp => ' 2023-08-31 21:02:30.176 -0700'::timestamp_tz);
+
+Fail safe period not available only on temporary Table.
+
+4. External Table:
+--------------------
+External tables are used to view the data without loading into the table.
+
+STEP 1:
+-------
+Uploading the file into S3
+
+Step 2:
+-------
+CREATE OR REPLACE STORAGE INTEGRATION INTG
+TYPE = EXTERNAL_STAGE
+ENABLED = TRUE
+STORAGE_PROVIDER = S3
+STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::359767273164:role/R5'
+STORAGE_ALLOWED_LOCATIONS = ('s3://onenine23/abc/');
+
+DESC STORAGE INTEGRATION INTG;
+
+Step 3:
+-------
+CREATE OR REPLACE STAGE STG
+URL = ('s3://onenine23/abc/')
+STORAGE_INTEGRATION = INTG;
+
+ls @stg;
+
+Step 4:
+-------
+CREATE OR REPLACE EXTERNAL TABLE T4
+WITH LOCATION = @STG
+FILE_FORMAT = (type = csv Skip_header = 1);
+
+SELECT * FROM T4;
+
+Segregate the JSON data in External Table:
+------------------------------------------
+SELECT 
+	VALUE:c1,
+	VALUE:c2
+ FROM T4;
+ 
+ SELECT 
+	VALUE:c1::int as ID,
+	VALUE:c2::varchar as Name
+ FROM T4;
+ 
+--------
+ CREATE OR REPLACE TABLE T4_BKP
+ AS
+  SELECT 
+	VALUE:c1::int as ID,
+	VALUE:c2::varchar as Name
+ FROM T4;
+ 
+How to Load the Json data into Snowflake:
+-----------------------------------------
+ls @stg;
+
+STEP 4:
+--------
+CREATE OR REPLACE TABLE T5
+(
+	JD VARIANT
+);
+
+COPY INTO T5
+FROM @STG/Employees_Json.json
+FILE_FORMAT = (TYPE = JSON);
+
+SELECT * FROM T5;
+
+Segregate the Json data:
+------------------------
+SELECT
+	JD:EMPLOYEE_ID::INT AS EMPLOYEE_ID,
+	JD:FIRST_NAME::VARCHAR AS FIRST_NAME,
+	JD:LAST_NAME::VARCHAR AS LAST_NAME
+FROM T5;
+
+CREATE OR REPLACE TABLE T6
+AS
+SELECT
+	JD:EMPLOYEE_ID::INT AS EMPLOYEE_ID,
+	JD:FIRST_NAME::VARCHAR AS FIRST_NAME,
+	JD:LAST_NAME::VARCHAR AS LAST_NAME
+FROM T5;
+
+-----------------------------------
+Day 42: 04-09-2023:
+--------------------
+Load:
+--------
+1. Incremental Load / DELTA LOAD
+2. Full Load
+
+1. Incremental Load:
+-----------------------
+1. Streams
+2. Subquery
+3. Merge
+
+2. Full Load:
+--------------
+1. Insert
+2. Dynamic
+
+1. Streams:
+------------
+A Stream is an object, if any DML action happened in base table that stream will capturing the all the DML actions like insert, update, delete.
+This process is referred as Change Data Capture (CDC)
+
+Table Creation:
+----------------
+CREATE OR REPLACE TABLE SRC(ID INT, NAME STRING);
+
+SELECT * FROM SRC;
+
+Streams Creation:
+------------------
+CREATE OR REPLACE STREAM STR;
+
+METADATA Columns:
+-----------------
+METADATA$ACTION
+METADATA$ISUPDATE
+METADATA$ROW_ID
+
+METADATA$ACTION:
+----------------
+Capturing the DML action(INSERT or DELETE)
+
+METADATA$ISUPDATE:
+-------------------
+Capturing the UPDATE action
+
+METADATA$ROW_ID:
+----------------
+Generating the unique ROW ID
+
+INSERT CDC:
+-----------
+insert into src values(1, 'Alex');
+
+insert into src values(2, 'Steve');
+
+SELECT * FROM SRC;
+
+SELECT * FROM STR;
+
+Consume the data from the streams:
+----------------------------------
+CREATE OR REPLACE TABLE TGT(ID INT, NAME STRING);
+
+Table Consume:
+--------------
+INSERT INTO TGT
+SELECT ID, NAME FROM SRC;
+
+Stream Consume:
+---------------
+INSERT INTO TGT
+SELECT ID, NAME FROM STR;
+
+DELETE CDC:
+-----------
+SELECT * FROM SRC;
+
+DELETE FROM SRC
+WHERE ID = 2;
+
+DELETE FROM SRC
+WHERE ID = 1;
+
+CREATE OR REPLACE TABLE TGT(ID INT, NAME STRING, ACTION STRING);
+
+INSERT INTO TGT
+SELECT ID, NAME, METADATA$ACTION
+FROM STR;
+
+Once the stream has been consumed, after the Streams has truncated.
+
+Update CDC:
+-----------
+SELECT * FROM SRC;
+
+insert into src values(1, 'Alex');
+
+insert into src values(2, 'Steve');
+
+SELECT * FROM STR;
+
+INSERT INTO TGT
+SELECT ID, NAME, METADATA$ACTION
+FROM STR;
+
+UPDATE SRC
+SET NAME = 'Bruce'
+WHERE ID = 2;
+
+SELECT * FROM SRC;
+
+SELECT * FROM STR;
+
+SELECT * FROM TGT;
+
+INSERT INTO TGT
+SELECT ID, NAME, METADATA$ACTION
+FROM STR;
+
+INSERT INTO SRC VALUES(1, 'Alex');
+
+--COMSUME
+
+UPDATE SRC
+SET NAME = 'BRUCE'
+WHERE ID = 1;
+
+--CONSUME
+
+DELETE FROM SRC;
+
+
+CREATE OR REPLACE TABLE STG(ID INT, NAME STRING);
+
+CREATE OR REPLACE TABLE TGT(ID INT, NAME STRING);
+
+INSERT INTO STG
+VALUES(1, 'ALEX'),(2, 'BRUCE');
+
+SELECT * FROM STG;
+
+SELECT * FROM TGT;
+
+INSERT INTO TGT
+SELECT * FROM STG;
+
+INSERT INTO STG
+VALUES(3, 'STEVE'),(4, 'NEENA');
+
+Increamental Load using Streams:
+--------------------------------
+CREATE OR REPLACE TABLE STG(ID INT, NAME STRING);
+
+CREATE OR REPLACE STREAM STR ON TABLE STG;
+
+CREATE OR REPLACE TABLE TGT(ID INT, NAME STRING);
+
+INSERT INTO STG
+VALUES(1,'ALEX'),(2, 'BRUCE');
+
+INSERT INTO STG
+VALUES(3,'STEVE'),(4, 'DAVID');
+
+INSERT INTO TGT
+SELECT ID, NAME
+FROM STR;
+
+2. Incremental load using Subquery:
+--------------------------------------
+CREATE OR REPLACE TABLE STG(ID INT, NAME STRING);
+
+CREATE OR REPLACE TABLE TGT(ID INT, NAME STRING);
+
+INSERT INTO STG
+VALUES(1,'ALEX'),(2, 'BRUCE');
+
+SELECT * FROM STG;
+
+SELECT * FROM TGT;
+
+INSERT INTO TGT
+SELECT * FROM STG;
+
+INSERT INTO STG
+VALUES(3,'STEVE'),(4, 'DAVID');
+
+INSERT INTO TGT
+SELECT * FROM STG
+WHERE ID NOT IN(SELECT ID FROM TGT);
+
+2. Full Load / Initial Load / Full Refresh:
+--------------------------------
+INSERT INTO TGT
+SELECT * FROM STG;
+
+-----------------------------------
+Day 43: 05-09-2023:
+--------------------
+5. Dynamic Table:
+-----------------
+We can use this table for auto full refresh.
+
+CREATE OR REPLACE TABLE STG
+(
+	ID INT,
+	NAME VARCHAR
+);
+
+
+SELECT CURRENT_TIMESTAMP();--2023-09-04 20:45:47.376 -0700
+
+SELECT * FROM TGT;--2
+
+INSERT INTO STG VALUES(1, 'A');
+
+INSERT INTO STG VALUES(2, 'B');
+
+
+SELECT CURRENT_TIMESTAMP();--2023-09-04 20:43:39.616 -0700
+
+
+CREATE OR REPLACE DYNAMIC TABLE TGT
+  TARGET_LAG = '1 minute'
+  WAREHOUSE = COMPUTE_WH
+  AS
+    SELECT * FROM STG;
+
+    SELECT * FROM TGT;
+
+3. Merge:
+---------
+CREATE OR REPLACE TABLE SRC
+(
+	ID INT,
+	NAME STRING,
+	AMOUNT INT
+);
+	
+INSERT INTO SRC
+VALUES
+(1, 'MILK',20),
+(2, 'MILKY BAR',30),
+(3, 'DAIRY MILK',50);
+
+CREATE OR REPLACE TABLE TGT
+(
+	ID INT,
+	NAME STRING,
+	AMOUNT INT,
+	ROW_INSRT_TMS TIMESTAMP,
+	ROW_UPDT_TMS TIMESTAMP
+);	
+	
+MERGE INTO TGT USING SRC
+ON TGT.ID = SRC.ID
+WHEN MATCHED THEN
+UPDATE
+SET TGT.AMOUNT = SRC.AMOUNT
+WHEN NOT MATCHED THEN
+INSERT(TGT.ID, TGT.NAME, TGT.AMOUNT, ROW_INSRT_TMS, ROW_UPDT_TMS)
+VALUES(SRC.ID, SRC.NAME, SRC.AMOUNT,CURRENT_TIMESTAMP, NULL);
+
+Source table is always full load or truncate and load
+
+INSERT INTO SRC
+VALUES
+(2,	'MILKY BAR',	40),
+(3,	'DAIRY MILK',	60),
+(4,	'KIT KAT',	10);
+
+COPY INTO SRC
+FROM @STG
+FILE_FORMAT = (TYPE = CSV SKIP_HEADER = 1)
+ON_ERROR = CONTINUE;
+
+INSERT INTO SRC
+VALUES
+(1, 'MILK',20),
+(2, 'MILKY BAR',30),
+(3, 'DAIRY MILK',50);
+
+CREATE OR REPLACE TABLE SRC
+(
+	ID INT,
+	NAME STRING,
+	AMOUNT INT
+);
+
+CREATE OR REPLACE TABLE TGT
+(
+	ID INT,
+	NAME STRING,
+	AMOUNT INT,
+	ROW_INSRT_TMS TIMESTAMP,
+	ROW_UPDT_TMS TIMESTAMP
+);	
+
+
+SELECT * FROM SRC;
+
+MERGE INTO TGT AS T USING SRC AS S
+ON T.ID = S.ID
+WHEN MATCHED THEN
+UPDATE
+SET 
+	T.ID			= S.ID,
+	T.NAME 			= S.NAME,
+	T.AMOUNT		= S.AMOUNT,
+	ROW_INSRT_TMS	= NULL,
+	ROW_UPDT_TMS	= CURRENT_TIMESTAMP
+WHEN NOT MATCHED THEN
+INSERT
+(
+	T.ID,
+	T.NAME,
+	T.AMOUNT,
+	T.ROW_INSRT_TMS,
+	T.ROW_UPDT_TMS
+)
+VALUES
+(
+	S.ID,
+	S.NAME,
+	S.AMOUNT,
+	CURRENT_TIMESTAMP,
+	NULL
+);
+
+INSERT INTO SRC
+VALUES
+(4,	'KIT KAT',	40),
+(5,	'FIVE STAR',	60);
+
+SELECT * FROM TGT;
+-----------------------------------
+Day 44: 06-09-2023:
+--------------------
+TASK / SCHEDULER:
+-----------------
+A task is a kind of trigger which gets executed at a specific time.
+A single task can allow the only one sql statement.
+A task we can call within procedure.
+
+Types:
+------
+1. Standalone Task
+2. Tree Task
+
+1. Standalone Task:
+--------------------
+CREATE OR REPLACE TABLE T1(A INT);
+
+CREATE OR REPLACE TASK LOAD
+WAREHOUSE = COMPUTE_WH
+SCHEDULE  = '1 MINUTE'
+AS
+INSERT INTO T1 VALUES(1);
+
+SHOW TASKS;
+
+ALTER TASK LOAD RESUME;
+
+CREATE OR REPLACE TABLE T2(A TIMESTAMP);
+
+CREATE OR REPLACE TASK LOAD2
+WAREHOUSE = COMPUTE_WH
+SCHEDULE  = '1 MINUTE'
+AS
+INSERT INTO T2 VALUES(CURRENT_TIMESTAMP());
+
+ALTER TASK LOAD2 RESUME;
+
+2. Tree Task:
+-------------
+# __________ minute (0-59)
+# | ________ hour (0-23)
+# | | ______ day of month (1-31, or L)
+# | | | ____ month (1-12, JAN-DEC)
+# | | | | _ day of week (0-6, SUN-SAT, or L)
+# | | | | |	_ Time Zone
+# | | | | | |
+  * * * * * *
+  
+0 - SUNDAY
+1 - MONDAY
+2 - TUESDAY
+3 - WEDNESDAY
+4 - THURSDAY
+5 - FRIDAY
+6 - SATURDAY
+
+SHOW PARAMETERS;
+
+ALTER SESSION 
+SET TIMEZONE = 'Asia/Kolkata';
+
+CREATE OR REPLACE TASK TSK1
+WAREHOUSE = COMPUTE_WH 
+SCHEDULE  = 'USING CRON 59 9 6 9 3 Asia/Kolkata'
+AS
+CREATE OR REPLACE TABLE PARENT(TSK_NAME VARCHAR);
+
+CREATE OR REPLACE TASK TSK2
+WAREHOUSE = COMPUTE_WH
+AFTER TSK1
+AS
+INSERT INTO PARENT VALUES('TSK2');
+
+CREATE OR REPLACE TASK TSK3
+WAREHOUSE = COMPUTE_WH
+AFTER TSK2
+AS
+INSERT INTO PARENT VALUES('TSK3');
+
+Start Task:
+-----------
+ALTER TASK TSK3 RESUME;
+ALTER TASK TSK2 RESUME;
+ALTER TASK TSK1 RESUME;
+
+Stop Task:
+-----------
+ALTER TASK TSK1 SUSPEND;
+ALTER TASK TSK2 SUSPEND;
+ALTER TASK TSK3 SUSPEND;
+ALTER TASK LOAD SUSPEND;
+ALTER TASK LOAD2 SUSPEND;
+
+RULES:
+------
+1. If we are trying to keep more than one sql statement, task will throw the error
+2. Schedule parameter only takes minutes and cron but it does not support seconds or hours.
+3. The maximum value is 11520 minutes and can not go above this number. 
+
+------------------------------
+ZERO COPY CLONING:
+------------------
+Cloning is copying the data from source table to target table. Same as backup concept.
+Cloning does not storing physical data its just storing the metadata. That is reason we are calling it zero copy cloning.
+Cloning is very faster comparing to backup concept.
+
+CREATE OR REPLACE TABLE SRC_BKP
+AS
+SELECT * FROM SRC;
+
+CREATE OR REPLACE DYNAMIC TABLE SRC_DYN
+WAREHOUSE = COMPUTE_WH
+TARGET_LAG = '1 minute'
+AS
+SELECT * FROM SRC;
+
+CLONING CREATION:
+--------------------
+CREATE OR REPLACE TABLE SRC_CL CLONE SRC;
+
+-----------------------------------
+Day 45: 07-09-2023:
+--------------------
+DCL -> Data Control Language:
+------------------------------
+1. GRANT
+2. REVOKE
+
+Access Control:
+----------------
+Users
+Roles
+
+Users Creation:
+---------------
+CREATE OR REPLACE USER U1
+PASSWORD = '123';
+
+CREATE OR REPLACE USER U2
+PASSWORD = '123'
+MUST_CHANGE_PASSWORD = TRUE;--Snowflake@123
+
+CREATE OR REPLACE ROLE NEW;
+
+Roles:
+------
+1. ACCOUNTADMIN
+2. SECURITYADMIN
+3. SYSADMIN
+4. USERADMIN
+5. ORGADMIN
+6. PUBLIC
+
+1. ACCOUNTADMIN:
+----------------
+It is superior role.
+It is providing the access to other roles.
+It is working with direct object(Table create).
+It is used to create the new users into the snowflake system.
+Monitoring the billing activity.
+
+SECURITYADMIN + SYSADMIN + USERADMIN + ORGADMIN
+
+2. SECURITYADMIN:
+-----------------
+It is providing the access to other roles.
+
+3. SYSADMIN:
+-------------
+It is working with direct object(db/Table create).
+
+4. USERADMIN:
+-------------
+It is used to create the new users into the snowflake system.
+
+5. ORGADMIN:
+-------------
+Check the billing.
+
+Proving the permissions:
+-------------------------
+1. GRANT:
+----------
+It is providing access to the other role/user.
+
+PERMISSIONS / PRIVILEGES:
+--------------------------
+USAGE
+SELECT
+MODIFY
+
+GRANT PERMISSIONS ON OBJECT_TYPE OBJ_NAME TO ROLE ROLE_NAME;
+
+GRANT USAGE ON DATABASE NEWDB TO ROLE SYSADMIN;
+
+GRANT USAGE ON DATABASE TT TO ROLE SYSADMIN;
+
+GRANT USAGE ON SCHEMA PUBLIC TO ROLE SYSADMIN;
+
+GRANT SELECT ON TABLE CUS_BKP TO ROLE SYSADMIN;
+
+GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE USERADMIN;
+
+GRANT ROLE SYSADMIN TO USER U2;
+
+GRANT ROLE NEW TO USER NIZAM;
+
+2. REVOKE:
+----------
+It is get back the access from the role/user.
+
+REVOKE PERMISSIONS ON OBJECT_TYPE OBJ_NAME FROM ROLE ROLE_NAME;
+
+REVOKE SELECT ON TABLE CUS_BKP FROM ROLE SYSADMIN;
+
+-----------
+Views:
+------
+We can see whatever all data in view which is presents in base table.
+If we are providing the table to reportes then they might change the data.
+If we are providing the view to reportes then they can not change the data. because view does not have the write access.
+
+CREATE OR REPLACE TABLE STG_BKP
+AS
+SELECT * FROM STG;
+
+CREATE OR REPLACE VIEW STG_V
+AS
+SELECT * FROM STG;
+
+UPDATE STG
+SET NAME = 'ABC'
+WHERE ID = 2;
+
+UPDATE STG_V
+SET NAME = 'ABC'
+WHERE ID = 2;
+
+Types:
+------
+1. Normal View
+2. Secure View
+3. Materialized View
+
+1. Normal View:
+---------------
+CREATE OR REPLACE VIEW V1
+AS
+SELECT * FROM STG
+UNION ALL
+SELECT * FROM STG;
+
+2. Secure View:
+---------------
+Other roles can not see the base query except who create this view.
+Who create the secure view that person can see the base query.
+
+CREATE OR REPLACE SECURE VIEW SV1
+AS
+SELECT * FROM STG
+UNION ALL
+SELECT * FROM STG;
+
+-----------------------------------
+Day 46: 08-09-2023:
+--------------------
+3. Materialized View:
+-----------------------
+We have a view that is required frequently and that a long time to be processed.
+Table consume the more execution time instead of we can put Materialized view it will run very fast comparing to other views.
+It is used to improve the query performance.
+It will works only on Enterprise edition or Business edition.
+It does not support multiple joins and multiple table, many functions.
+
+CREATE OR REPLACE VIEW STG_NV
+AS
+SELECT * FROM STG;
+
+CREATE OR REPLACE SECURE VIEW STG_SV
+AS
+SELECT * FROM STG;
+
+CREATE OR REPLACE Materialized VIEW STG_MV
+AS
+SELECT * FROM STG;
+
+SELECT * FROM STG_NV;
+
+SELECT * FROM STG_SV;
+
+SELECT * FROM STG_MV;
+
+-----------------
+Data Governance:
+-----------------
+Dynamic Data Masking - Column Level Security:
+---------------------------------------------
+CREATE OR REPLACE MASKING POLICY MSK
+AS
+(PWD VARCHAR)
+RETURNS VARCHAR
+->
+CASE
+	WHEN CURRENT_ROLE() = 'SYSADMIN' THEN PWD
+	ELSE
+		'*****'
+END;
+
+Applying the Masking Policy:
+------------------------------
+ALTER TABLE STG
+MODIFY COLUMN PASSWORD
+SET MASKING POLICY MSK;
+
+CREATE OR REPLACE MASKING POLICY MSK2
+AS
+(NAME VARCHAR)
+RETURNS VARCHAR
+->
+CASE
+	WHEN CURRENT_ROLE() = 'ACCOUNTADMIN' THEN NAME
+	ELSE
+		'*****'
+END;
+
+ALTER TABLE STG
+MODIFY COLUMN NAME
+SET MASKING POLICY MSK2;
+
+REMOVING THE MASKING POLICY:
+------------------------------
+ALTER TABLE STG
+MODIFY COLUMN NAME
+UNSET MASKING POLICY;
+
+DROP MASKING POLICY MSK2;
+
+Rules / Limitation:
+-------------------
+1. Prior to dropping a policy, we should unset is required.
+2. Only one column per alter table.
+3. Masking policy definition must have the same sata type for the input and output
+
+-----------------
+Sequence:
+----------
+It is used to generate a new unique numbers everytime.
+Instead of primary key we can use the Sequence for unique number generation.
+
+CREATE OR REPLACE TABLE T1
+(
+ID INT PRIMARY KEY,
+NAME VARCHAR NOT NULL
+);
+
+Sequence Creation:
+------------------
+CREATE OR REPLACE SEQUENCE SEQ;
+
+INSERT INTO T1 
+VALUES(SEQ.NEXTVAL, 'A');
+
+Sequence creation start with # property:
+----------------------------------------
+CREATE OR REPLACE SEQUENCE SEQ
+START WITH 100;
+
+Sequence creation with increment property:
+-------------------------------------------
+CREATE OR REPLACE SEQUENCE SEQ
+START WITH 10
+INCREMENT BY 10;
+
+-----------------------------------
+Day 47: 11-09-2023:
+--------------------
+Data Sharing:
+-------------
+Sharing the data to multiple snowflake accounts.
+
+Types:
+------
+1. Consumer Account (Inbound Shares - Receiver)
+2. Provider Account (Outbound Shares - Sender)
+
+Shareable Objects:
+------------------
+Database
+Schema
+Table
+External Table
+Secure View
+Secure MView
+
+Account 1: https://qc15759.ap-southeast-1.snowflakecomputing.com (Provider)
+Account 2: https://oq11806.ap-southeast-1.snowflakecomputing.com (Consumer)
+
+Data Share Object Creation:
+---------------------------
+CREATE OR REPLACE SHARE SH;
+
+
+DATABASE	- TT
+SCHEMA		- PUBLIC
+TABLE		- SRC
+
+GRANT USAGE ON DATABASE TT TO SHARE SH;
+
+GRANT USAGE ON SCHEMA PUBLIC TO SHARE SH;
+
+GRANT SELECT ON TABLE SRC TO SHARE SH;
+
+
+ALTER SHARE SH
+ADD ACCOUNTS = VPVLDEB.WT42058;
+
+CREATING THE RECEIVER DATABASE:
+-------------------------------
+CREATE OR REPLACE DATABASE RD
+FROM SHARE HYAIJWG.WE37150.SH;
+
+
+
+create or replace database db100;
+
+create or replace schema sc;
+
+create or replace table t1(a int);
+
+insert into t1 values(1),(2),(3);
+
+create or replace view nv as
+(
+select * from t1
+);
+
+create or replace materialized view mv as
+(
+select * from t1
+);
+
+create or replace secure view snv as
+(
+select * from t1
+);
+
+
+create or replace secure materialized view smv as
+(
+select * from t1
+);
+
+CREATE OR REPLACE SHARE NEWSHARE;
+
+GRANT USAGE ON DATABASE DB100 TO SHARE NEWSHARE;
+
+GRANT USAGE ON SCHEMA SC TO SHARE NEWSHARE;
+
+GRANT ALL ON TABLE T1 TO SHARE NEWSHARE;
+
+--GRANT ALL ON VIEW NV TO SHARE NEWSHARE;
+
+--GRANT ALL ON VIEW MV TO SHARE NEWSHARE;
+
+GRANT select ON VIEW SNV TO SHARE NEWSHARE;
+
+GRANT select ON VIEW smv TO SHARE NEWSHARE;
+
+
+ALTER SHARE NEWSHARE
+ADD ACCOUNTS = HYAIJWG.WE37150;
+
+CREATE RECEIVER DB:
+-------------------
+CREATE OR REPLACE DATABASE DB100
+FROM SHARE VPVLDEB.WT42058.NEWSHARE;
+
+Rules:
+-------
+We can read only for shared data.
+We can not see the base query.
+We can reshare to the other account.
+We can not do the time travel.
+We can not do the cloning of the shared object.
+---------------------------------------
+User Defined Function (UDF):
+----------------------------
+CREATE OR REPLACE FUNCTION F1()
+RETURNS NUMBER
+AS
+$$
+	100
+$$;
+
+SELECT F1();
+
+SELECT UPPER(FIRST_NAME);
+
+
+CREATE OR REPLACE FUNCTION F2(A NUMBER)
+RETURNS NUMBER
+AS
+$$
+	A + 100
+$$;
+
+CREATE OR REPLACE FUNCTION F3(A NUMBER, B NUMBER)
+RETURNS NUMBER
+AS
+$$
+	A + B
+$$;
+
+select f3(10, 5);
+
+
+CREATE OR REPLACE FUNCTION BONUS(A NUMBER, B NUMBER)
+RETURNS NUMBER
+AS
+$$
+	A + B
+$$;
+
+SELECT 
+	FIRST_NAME, 
+	UPPER(FIRST_NAME), 
+	SALARY, 
+	BONUS(SALARY, 1000)
+FROM EMPLOYEES;
+
+
+CREATE OR REPLACE FUNCTION CON(A VARCHAR, B VARCHAR)
+RETURNS VARCHAR
+AS
+$$
+	A || ' ' || B
+$$;
+
+
+SELECT CON(FIRST_NAME, LAST_NAME)
+FROM EMPLOYEES;
+
+
+-----------------------------------
+Day 48: 12-09-2023:
+--------------------
+Stored Procedure:
+------------------
+Stored Procedures are used to storing the codes in database.
+We can write store procedure two languages.
+SQL procedure is not case sensitive but Javascript is case sensitive.
+Procedure can not accept the NUMBER data type in RETURNS if the procedure writter Javascript language.
+If we are procedure using the SQL language it is optional for Javascript procedure Language keyword is must.
+
+Language:
+---------
+1. JavaScript
+2. SQL
+
+CREATE OR REPLACE PROCEDURE P1()
+RETURNS STRING
+LANGUAGE JAVASCRIPT
+AS
+$$
+ return 'HELLO WORLD';
+$$;
+
+CALL P1();
+
+CREATE OR REPLACE FUNCTION F1()
+RETURNS STRING
+AS
+$$
+ 'HELLO WORLD'
+$$;
+
+SELECT F1();
+
+Difference between Function and Procedure:
+------------------------------------------
+Function:
+----------
+1. We can execute the SELECT statement for function.
+2. In a function we can write only single statement.
+3. Inside the funciton we should not use the semi colon.
+
+
+Procedure:
+-----------
+1. We can use CALL keyword for execute the procedure.
+2. In a procedure we can write multiple statements.
+3. In procedure we should use semi colon for each statement.
+
+
+CREATE OR REPLACE PROCEDURE P2()
+RETURNS FLOAT
+LANGUAGE JAVASCRIPT
+AS
+$$
+	return 123;
+$$;
+
+CREATE OR REPLACE PROCEDURE P3()
+RETURNS STRING
+LANGUAGE SQL
+AS
+$$
+	BEGIN
+		return 'Hello World';
+	END;
+$$;
+
+CREATE OR REPLACE PROCEDURE P4()
+RETURNS NUMBER
+LANGUAGE SQL
+AS
+$$
+	BEGIN
+		return 123;
+	END;
+$$;
+
+
+CREATE OR REPLACE TABLE T1(A INT);
+
+CREATE OR REPLACE PROCEDURE P5()
+RETURNS VARCHAR
+AS
+$$
+	BEGIN
+		INSERT INTO T1 VALUES(100);
+		RETURN 'INSERTED';
+	END;
+$$;
+
+CALL P5();
+
+CREATE OR REPLACE PROCEDURE P6()
+RETURNS VARCHAR
+LANGUAGE JAVASCRIPT
+AS
+$$
+	snowflake.execute({sqlText:`INSERT INTO T1 VALUES(200);`});
+	
+	return 'Inserted';
+$$;
+
+call p6();
+
+
+CREATE OR REPLACE PROCEDURE P7(A NUMBER)
+RETURNS VARCHAR
+LANGUAGE SQL
+AS
+$$
+	BEGIN
+		INSERT INTO T1 VALUES(:A);
+		RETURN 'Inserted';
+	END;
+$$; 
+
+CALL P7(A => 200);
+
+
+CREATE OR REPLACE PROCEDURE P8(A FLOAT)
+RETURNS VARCHAR
+LANGUAGE JAVASCRIPT
+AS
+$$
+	snowflake.execute({sqlText:`INSERT INTO T1 VALUES(`+A+`);`});
+	return 'Inserted';
+$$;
+
+10, 10, Add => 20
+
+5, 2, sub => 3
+
+
+CREATE OR REPLACE PROCEDURE P9(A FLOAT, B FLOAT, C STRING)
+RETURNS VARCHAR
+LANGUAGE JAVASCRIPT
+AS
+$$
+	if(C == 'Add')
+	{
+		return A + B;
+	}
+	else if(C == 'Sub')
+	{
+		return A - B;
+	}
+	else if(C == 'Mul')
+	{
+		return A * B;
+	}
+	else if(C == 'Div')
+	{
+		return A / B;
+	}
+	else
+	{
+		return 'Condition Not satisfied';
+	};
+
+$$;
+
+Privileges:
+--------------
+1. Caller
+2. Owner
+
+CREATE OR REPLACE PROCEDURE P10()
+RETURNS VARCHAR
+LANGUAGE SQL
+EXECUTE AS CALLER
+AS
+$$
+	BEGIN
+		INSERT INTO T1 VALUES(100);
+		RETURN 'Inserted';
+	END;
+$$;
+
+GRANT USAGE ON PROCEDURE P10() TO ROLE SYSADMIN;
+
+CREATE OR REPLACE PROCEDURE P11()
+RETURNS VARCHAR
+LANGUAGE SQL
+EXECUTE AS OWNER
+AS
+$$
+	BEGIN
+		INSERT INTO T1 VALUES(100);
+		RETURN 'Inserted';
+	END;
+$$;  
+
+GRANT USAGE ON PROCEDURE P11() TO ROLE SYSADMIN;
+
+REATE OR REPLACE PROCEDURE P12()
+RETURNS FLOAT
+LANGUAGE JAVASCRIPT
+AS
+$$
+	var a = 100;
+	return a;
+$$;
+
+CALLER:
+--------
+Anyone or any role can see the procedure definition.
+
+OWNER:
+------
+Whoever create the procedure he is the owner, so owner only can see the definition of procedure.
+
+-----------------------------------
+Day 49: 13-09-2023:
+--------------------
